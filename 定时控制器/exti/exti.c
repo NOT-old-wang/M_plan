@@ -32,6 +32,6 @@ void EXTIX_Init(void)
 //外部中断0服务程序 
 void EXTI1_IRQHandler(void)
 {
-  LED1=0;
+//  LED1=0;
 	EXTI_ClearITPendingBit(EXTI_Line1); //清除LINE0上的中断标志位  
 }
