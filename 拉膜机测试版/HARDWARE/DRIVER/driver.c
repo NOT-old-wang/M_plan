@@ -206,15 +206,15 @@ void Locate_Abs_Y(long num,u32 frequency)//绝对定位函数
 
 
 
-u8 rcr_remainder_X;   //重复计数余数部分
-u8 is_rcr_finish_X=1; //重复计数器是否设置完成
-long rcr_integer_X;	//重复计数整数部分
-long target_pos_X=0;  //有符号方向
-long current_pos_X=0; //有符号方向
-DIR_Type motor_dir_X=CW;//顺时针
+u8 rcr_remainder_A;   //重复计数余数部分
+u8 is_rcr_finish_A=1; //重复计数器是否设置完成
+long rcr_integer_A;	//重复计数整数部分
+long target_pos_A=0;  //有符号方向
+long current_pos_A=0; //有符号方向
+DIR_Type motor_dir_A=CW;//顺时针
 
 /************** 驱动器控制信号线初始化 ****************/
-void Driver_Init_X(void)
+void Driver_Init_A(void)
 {
 	GPIO_InitTypeDef  GPIO_InitStructure;
 
@@ -224,7 +224,7 @@ void Driver_Init_X(void)
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		//推挽输出
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		//IO口速度为50MHz
 	GPIO_Init(GPIOE, &GPIO_InitStructure);					//根据设定参数初始化GPIOE
-	GPIO_SetBits(GPIOE,GPIO_Pin_12);						 	//PC12输出高 顺时针方向  DRIVER_DIR_X
+	GPIO_SetBits(GPIOE,GPIO_Pin_12);						 	//PC12输出高 顺时针方向  DRIVER_DIR_A
 	GPIO_SetBits(GPIOE,GPIO_Pin_13);						//PC13输出高 使能输出  DRIVER_OE_X
 }
 
@@ -293,31 +293,31 @@ void TIM1_UP_IRQHandler(void)
 	if(TIM_GetITStatus(TIM1,TIM_FLAG_Update)!=RESET)//更新中断
 	{
 		TIM_ClearITPendingBit(TIM1,TIM_FLAG_Update);//清除更新中断标志位		
-		if(is_rcr_finish_X==0)//重复计数器未设置完成
+		if(is_rcr_finish_A==0)//重复计数器未设置完成
 		{
-			if(rcr_integer_X!=0) //整数部分脉冲还未发送完成
+			if(rcr_integer_A!=0) //整数部分脉冲还未发送完成
 			{
-				TIM1->RCR=RCR_VAL_X;//设置重复计数值
-				rcr_integer_X--;//减少RCR_VAL+1个脉冲				
-			}else if(rcr_remainder_X!=0)//余数部分脉冲 不位0
+				TIM1->RCR=RCR_VAL_A;//设置重复计数值
+				rcr_integer_A--;//减少RCR_VAL+1个脉冲				
+			}else if(rcr_remainder_A!=0)//余数部分脉冲 不位0
 			{
-				TIM1->RCR=rcr_remainder_X-1;//设置余数部分
-				rcr_remainder_X=0;//清零
-				is_rcr_finish_X=1;//重复计数器设置完成				
+				TIM1->RCR=rcr_remainder_A-1;//设置余数部分
+				rcr_remainder_A=0;//清零
+				is_rcr_finish_A=1;//重复计数器设置完成				
 			}else goto out;   //rcr_remainder=0，直接退出			 
 			TIM_GenerateEvent(TIM1,TIM_EventSource_Update);//产生一个更新事件 重新初始化计数器
 			TIM_CtrlPWMOutputs(TIM1,ENABLE);	//MOE 主输出使能	
 			TIM_Cmd(TIM1, ENABLE);  //使能TIM1			
-			if(motor_dir_X==CW) //如果方向为顺时针   
-				current_pos_X+=(TIM1->RCR+1);//加上重复计数值
+			if(motor_dir_A==CW) //如果方向为顺时针   
+				current_pos_A+=(TIM1->RCR+1);//加上重复计数值
 			else          //否则方向为逆时针
-				current_pos_X-=(TIM1->RCR+1);//减去重复计数值			
+				current_pos_A-=(TIM1->RCR+1);//减去重复计数值			
 		}else
 		{
-out:		is_rcr_finish_X=1;//重复计数器设置完成
+out:		is_rcr_finish_A=1;//重复计数器设置完成
 			TIM_CtrlPWMOutputs(TIM1,DISABLE);	//MOE 主输出关闭
 			TIM_Cmd(TIM1, DISABLE);  //关闭TIM8				
-			printf("X轴当前位置=%fcm\r\n",current_pos_X*One_Pulse_Distance);//打印输出
+			printf("X轴当前位置=%fcm\r\n",current_pos_A*One_Pulse_Distance);//打印输出
 		}	
 	}
 }
@@ -336,7 +336,7 @@ void TIM1_Startup(u32 frequency)   //启动定时器1
 //frequency: 20Hz~100KHz
 //dir: CW(顺时针方向)  CCW(逆时针方向)
 *********************************************/
-void Locate_Rle_X(long num,u32 frequency,DIR_Type dir) //相对定位函数
+void Locate_Rle_A(long num,u32 frequency,DIR_Type dir) //相对定位函数
 {
 	if(num<=0) //数值小等于0 则直接返回
 	{
@@ -353,17 +353,17 @@ void Locate_Rle_X(long num,u32 frequency,DIR_Type dir) //相对定位函数
 //		printf("\r\nThe frequency is out of range! please reset it!!(range:20Hz~100KHz)\r\n");
 		return;
 	}
-	motor_dir_X=dir;//得到方向	
-	DRIVER_DIR_X=motor_dir_X;//设置方向
+	motor_dir_A=dir;//得到方向	
+	DRIVER_DIR_A=motor_dir_A;//设置方向
 	
-	if(motor_dir_X==CW)//顺时针
-		target_pos_X=current_pos_X+num;//目标位置
-	else if(motor_dir_X==CCW)//逆时针
-		target_pos_X=current_pos_X-num;//目标位置
+	if(motor_dir_A==CW)//顺时针
+		target_pos_A=current_pos_A+num;//目标位置
+	else if(motor_dir_A==CCW)//逆时针
+		target_pos_A=current_pos_A-num;//目标位置
 	
-	rcr_integer_X=num/(RCR_VAL_X+1);//重复计数整数部分
-	rcr_remainder_X=num%(RCR_VAL_X+1);//重复计数余数部分
-	is_rcr_finish_X=0;//重复计数器未设置完成
+	rcr_integer_A=num/(RCR_VAL_A+1);//重复计数整数部分
+	rcr_remainder_A=num%(RCR_VAL_A+1);//重复计数余数部分
+	is_rcr_finish_A=0;//重复计数器未设置完成
 	TIM1_Startup(frequency);//开启TIM1
 }
 /********************************************
@@ -371,7 +371,7 @@ void Locate_Rle_X(long num,u32 frequency,DIR_Type dir) //相对定位函数
 //num   -2147483648～2147483647
 //frequency: 20Hz~100KHz
 *********************************************/
-void Locate_Abs_X(long num,u32 frequency)//绝对定位函数
+void Locate_Abs_A(long num,u32 frequency)//绝对定位函数
 {
 	if(TIM1->CR1&0x01)//上一次脉冲还未发送完成 直接返回
 	{
@@ -383,49 +383,60 @@ void Locate_Abs_X(long num,u32 frequency)//绝对定位函数
 //		printf("\r\nThe frequency is out of range! please reset it!!(range:20Hz~100KHz)\r\n");
 		return;
 	}
-	target_pos_X=num;//设置目标位置
-	if(target_pos_X!=current_pos_X)//目标和当前位置不同
+	target_pos_A=num;//设置目标位置
+	if(target_pos_A!=current_pos_A)//目标和当前位置不同
 	{
-		if(target_pos_X>current_pos_X)
-			motor_dir_X=CW;//顺时针
+		if(target_pos_A>current_pos_A)
+			motor_dir_A=CW;//顺时针
 		else
-			motor_dir_X=CCW;//逆时针
-		DRIVER_DIR_X=motor_dir_X;//设置方向
+			motor_dir_A=CCW;//逆时针
+		DRIVER_DIR_A=motor_dir_A;//设置方向
 		
-		rcr_integer_X=abs(target_pos_X-current_pos_X)/(RCR_VAL_X+1);//重复计数整数部分
-		rcr_remainder_X=abs(target_pos_X-current_pos_X)%(RCR_VAL_X+1);//重复计数余数部分
-		is_rcr_finish_X=0;//重复计数器未设置完成
+		rcr_integer_A=abs(target_pos_A-current_pos_A)/(RCR_VAL_A+1);//重复计数整数部分
+		rcr_remainder_A=abs(target_pos_A-current_pos_A)%(RCR_VAL_A+1);//重复计数余数部分
+		is_rcr_finish_A=0;//重复计数器未设置完成
 		TIM1_Startup(frequency);//开启TIM1
 	}
 }
 
 
-void XY_back_zero(u32 frequency)
+void AY_back_zero(u32 frequency)
 {
-	  Locate_Abs_X(0,frequency);//按下WKUP，回零点
+	  Locate_Abs_A(0,frequency);//按下WKUP，回零点
     Locate_Abs_Y(0,frequency);//按下WKUP，回零点
 }
 
-void XY_MOVE(long x_num,long y_num,u32 frequency)
+void AY_MOVE(long x_num,long y_num,u32 frequency)
 {
-   Locate_Abs_X(x_num,frequency);//绝对定位函数
+   Locate_Abs_A(x_num,frequency);//绝对定位函数
 	 Locate_Abs_Y(y_num,frequency);//绝对定位函数
 }
 
-
-void X_angle(s16 angle,u32 frequency)
-{
-  long num;
-	num=angle*one_angle_pluse;
-	Locate_Abs_X(num,frequency);
+void A_abs_distance(long dis,u32 frequency)
+{ 
+	long num;
+	num=dis/One_Pulse_Distance;
+	Locate_Abs_A(num,frequency);
 }
 
-void Y_angle(s16 angle,u32 frequency)
-{
-  long num;
-	num=angle*one_angle_pluse;
+void Y_abs_distance(long dis,u32 frequency)
+{ 
+	long num;
+	num=dis/One_Pulse_Distance;
 	Locate_Abs_Y(num,frequency);
 }
 
 
+void A_rle_distance(long dis,u32 frequency)
+{ 
+	long num;
+	num=dis/One_Pulse_Distance;
+	Locate_Rle_A(num,frequency,CW);
+}
 
+void Y_rle_distance(long dis,u32 frequency)
+{ 
+	long num;
+	num=dis/One_Pulse_Distance;
+	Locate_Rle_Y(num,frequency,CW);
+}

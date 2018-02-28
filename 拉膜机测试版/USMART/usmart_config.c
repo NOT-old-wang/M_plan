@@ -18,12 +18,12 @@ struct _m_usmart_nametab usmart_nametab[]=
 	(void*)delay_ms,"void delay_ms(u16 nms)",
  	(void*)delay_us,"void delay_us(u32 nus)",	 
 	/**********  FOR MOTOR DRIVER**********/		
-	(void*)Locate_Rle_X,"void Locate_Rle_X(long num,u32 frequency,DIR_Type dir)",	
-	(void*)Locate_Abs_X,"void Locate_Abs_X(long num,u32 frequency)",	
+	(void*)Locate_Rle_A,"void Locate_Rle_A(long num,u32 frequency,DIR_Type dir)",	
+	(void*)Locate_Abs_A,"void Locate_Abs_A(long num,u32 frequency)",	
 	(void*)Locate_Rle_Y,"void Locate_Rle_Y(long num,u32 frequency,DIR_Type dir)",	
 	(void*)Locate_Abs_Y,"void Locate_Abs_Y(long num,u32 frequency)",	
-  (void*)XY_MOVE,"void XY_MOVE(long x_num,long y_num,u32 frequency)",		
-	(void*)XY_back_zero,"void XY_back_zero(u32 frequency)",
+  (void*)AY_MOVE,"void XY_MOVE(long x_num,long y_num,u32 frequency)",		
+	(void*)AY_back_zero,"void XY_back_zero(u32 frequency)",
 };						  
 ///////////////////////////////////END///////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
