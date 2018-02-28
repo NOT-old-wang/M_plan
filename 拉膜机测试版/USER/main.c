@@ -38,7 +38,7 @@ int main(void)
 		}else if(keyval==KEY3_PRES)
 		{
 			LED1=1;
-			A_rle_distance(20,32000);
+			A_rle_distance(5,32000);
 		}			
 	}			
 }
