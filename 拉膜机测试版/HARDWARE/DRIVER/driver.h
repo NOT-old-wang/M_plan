@@ -15,6 +15,8 @@ AÖá
 //STEP_PULSE_A   PA11 (TIM1_CH4)
 
 ******************************************/
+//long move_mm=0;
+
 #define DRIVER_DIR_A   PEout(12) // XÖáÐý×ª·½Ïò 
 #define DRIVER_OE_A    PEout(13) // XÖáÊ¹ÄÜ½Å ¸ßµçÆ½ÓÐÐ§
 #define DRIVER_DIR_Y   PEout(14)// YÖáÐý×ª·½Ïò 
@@ -66,6 +68,10 @@ void Y_abs_distance(long dis,u32 frequency); //YÖá·½Ïò¾àÀë¿ØÖÆ.ÊäÈë½Ç¶È£¬ÆµÂÊ¼´¿
 void AY_back_zero(u32 frequency); //»ØÁãµã
 void AY_MOVE(long x_num,long y_num,u32 frequency);//¶À×Ô×ø±ê¶¨Î»
 
+
+void All_motor_start();
+void All_motor_stop();
+void All_motor_back();
 
 #endif
 

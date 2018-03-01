@@ -5,8 +5,26 @@
 #include "led.h"	 
 #include "usmart.h"	
 #include "driver.h"
+#include "oled.h"
 
+/*使用的资源 
+按键：
+ KEY1 PEin(0)		//读取KEY1      启动
+ KEY2 PEin(1)		//读取KEY2      停止  
+ KEY3 PEin(2)		//读取KEY3      增大(下一个)
+ KEY4 PEin(3)		//读取KEY4      减小(上一个)
+ KEY5 PEin(4)		//读取KEY5      归零 
+ KEY6 PEin(7)		//读取KEY6      微调(进)
+ KEY7 PEin(8)		//读取KEY7      微调(退)
 
+OLED: 3.3v  
+D0(SCLK)--PC0 | D1(SDIN)--PC1 | RST--PG15 | DS-- PD3| CS--PD6 | RST--PG15
+
+A轴
+//DRIVER_DIR_A   PE12
+//DRIVER_OE_A    PE13
+//STEP_PULSE_A   PA11 (TIM1_CH4)
+*/
 	
 int main(void)
 {	 

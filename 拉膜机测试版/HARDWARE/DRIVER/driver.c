@@ -15,10 +15,6 @@ long rcr_integer_Y;	//重复计数整数部分
 long target_pos_Y=0;  //有符号方向
 long current_pos_Y=0; //有符号方向
 DIR_Type motor_dir_Y=CW;//顺时针
-int temp1;
-float temp2;
-float temp;
-float a=25600.000000;
 
 /************** 驱动器控制信号线初始化 ****************/
 void Driver_Init_Y(void)
@@ -439,4 +435,19 @@ void Y_rle_distance(long dis,u32 frequency)
 	long num;
 	num=dis/One_Pulse_Distance;
 	Locate_Rle_Y(num,frequency,CW);
+}
+
+void All_motor_start()
+{
+	
+}
+
+void All_motor_stop()
+{
+
+}
+
+void All_motor_back()
+{
+
 }

@@ -2,13 +2,13 @@
 #define __KEY_H	 
 #include "sys.h"
 
-#define KEY1 PEin(0)		//读取KEY1
-#define KEY2 PEin(1)		//读取KEY2
-#define KEY3 PEin(2)		//读取KEY3
-#define KEY4 PEin(3)		//读取KEY4
-#define KEY5 PEin(4)		//读取KEY5
-#define KEY6 PEin(7)		//读取KEY6
-#define KEY7 PEin(8)		//读取KEY7
+#define KEY1 PEin(0)		//读取KEY1      启动(确认)
+#define KEY2 PEin(1)		//读取KEY2      停止  
+#define KEY3 PEin(2)		//读取KEY3      增大(下一个)
+#define KEY4 PEin(3)		//读取KEY4      减小(上一个)
+#define KEY5 PEin(4)		//读取KEY5      归零 
+#define KEY6 PEin(7)		//读取KEY6      微调(进)
+#define KEY7 PEin(8)		//读取KEY7      微调(退)
 
 #define KEY1_PRES		1		//KEY1按下
 #define KEY2_PRES		2		//KEY2按下
