@@ -34,3 +34,4 @@
 ..\obj\display.o: D:\ARM\ARM\ARMCC\Bin\..\include\stdlib.h
 ..\obj\display.o: ..\HARDWARE\KEY\key.h
 ..\obj\display.o: ..\HARDWARE\DRIVER\driver.h
+..\obj\display.o: ..\SYSTEM\delay\delay.h

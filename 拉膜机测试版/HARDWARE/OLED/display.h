@@ -3,6 +3,7 @@
 #include "oled.h"
 #include "key.h"
 #include "driver.h"
+#include "delay.h"
 
 #define MENU_SIZE 50          //菜单长度
 
@@ -18,7 +19,7 @@ void motor_distance_window();
 
 void motor_speed();    //电机速度设置界面
 void motor_speed_window();
-
+void Welcome(void);
 void motor_adjust(void);   //电机调整
 
 

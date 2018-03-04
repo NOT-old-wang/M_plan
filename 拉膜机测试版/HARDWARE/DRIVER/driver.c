@@ -437,9 +437,11 @@ void Y_rle_distance(long dis,u32 frequency)
 	Locate_Rle_Y(num,frequency,CW);
 }
 
-void All_motor_start()
+void All_motor_start(long A,long B,long C)
 {
-	
+	A_abs_distance(A,32000);
+//	B_abs_distance(B,32000);
+//	C_abs_distance(C,32000);
 }
 
 void All_motor_stop()

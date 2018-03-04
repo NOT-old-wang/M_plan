@@ -39,3 +39,4 @@
 ..\obj\main.o: ..\HARDWARE\DRIVER\driver.h
 ..\obj\main.o: D:\ARM\ARM\ARMCC\Bin\..\include\stdlib.h
 ..\obj\main.o: ..\HARDWARE\OLED\oled.h
+..\obj\main.o: ..\HARDWARE\OLED\display.h

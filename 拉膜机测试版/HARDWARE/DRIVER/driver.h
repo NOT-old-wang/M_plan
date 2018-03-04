@@ -69,7 +69,7 @@ void AY_back_zero(u32 frequency); //回零点
 void AY_MOVE(long x_num,long y_num,u32 frequency);//独自坐标定位
 
 
-void All_motor_start();
+void All_motor_start(long,long,long);
 void All_motor_stop();
 void All_motor_back();
 
