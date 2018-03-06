@@ -217,7 +217,7 @@ void Driver_Init_A(void)
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOE, ENABLE);	//使能PE端口时钟
 
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12|GPIO_Pin_13;	//PE12,13 端口配置
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		//推挽输出
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_OD; 		//推挽输出
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		//IO口速度为50MHz
 	GPIO_Init(GPIOE, &GPIO_InitStructure);					//根据设定参数初始化GPIOE
 	GPIO_SetBits(GPIOE,GPIO_Pin_12);						 	//PC12输出高 顺时针方向  DRIVER_DIR_A
@@ -245,7 +245,7 @@ void TIM1_OPM_RCR_Init(u16 arr,u16 psc)
 
   //设置该引脚为复用输出功能,输出TIM1 CH4的PWM脉冲波形
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11; //TIM1_CH4
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;  //复用推挽输出
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_OD;  //复用推挽输出
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 	
@@ -266,7 +266,9 @@ void TIM1_OPM_RCR_Init(u16 arr,u16 psc)
 	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable; //比较输出2使能
 	TIM_OCInitStructure.TIM_OutputNState = TIM_OutputNState_Disable; /****** 比较输出2N失能 *******/
 	TIM_OCInitStructure.TIM_Pulse = arr>>1; //设置待装入捕获比较寄存器的脉冲值
-	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High; //输出极性:TIM输出比较极性高
+	
+	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_Low; //输出极性:TIM输出比较极性高
+	
 	TIM_OC4Init(TIM1, &TIM_OCInitStructure);  //根据TIM_OCInitStruct中指定的参数初始化外设TIMx
 
 	TIM_OC4PreloadConfig(TIM1, TIM_OCPreload_Enable);  //CH4预装载使能	 
@@ -439,9 +441,9 @@ void Y_rle_distance(long dis,u32 frequency)
 
 void All_motor_start(long A,long B,long C)
 {
-	A_abs_distance(A,32000);
-//	B_abs_distance(B,32000);
-//	C_abs_distance(C,32000);
+	  A_rle_distance(A,20000); 
+//	B_rle_distance(B,32000);
+//	C_rle_distance(C,32000);
 }
 
 void All_motor_stop()
@@ -451,5 +453,8 @@ void All_motor_stop()
 
 void All_motor_back()
 {
+	Locate_Abs_A(0,20000);//按下WKUP，回零点
+//	Locate_Abs_B(0,20000);//按下WKUP，回零点
+//  Locate_Abs_C(0,20000);//按下WKUP，回零点
 
 }

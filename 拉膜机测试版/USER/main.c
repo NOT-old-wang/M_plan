@@ -11,12 +11,12 @@
 /*使用的资源 
 按键：
  KEY1 PEin(0)		//读取KEY1      启动
- KEY2 PEin(1)		//读取KEY2      停止  
- KEY3 PEin(2)		//读取KEY3      增大(下一个)
- KEY4 PEin(3)		//读取KEY4      减小(上一个)
+ KEY2 PEin(1)		//读取KEY2      停止  选择电机 
+ KEY3 PEin(2)		//读取KEY3      增大(下一个)电机位移设置界面;
+ KEY4 PEin(3)		//读取KEY4      减小(上一个)电机速度设置界面
  KEY5 PEin(4)		//读取KEY5      归零 
- KEY6 PEin(7)		//读取KEY6      微调(进)
- KEY7 PEin(8)		//读取KEY7      微调(退)
+ KEY6 PEin(7)		//读取KEY6      电机微调界面 
+
 
 OLED: 3.3v  
 D0(SCLK)--PC0 | D1(SDIN)--PC1 | DC-- PD3| CS--PD6 | RST--PG15
@@ -52,15 +52,15 @@ int main(void)
 //		if(keyval==KEY1_PRES)
 //		{
 //			LED1=1;
-//			Locate_Abs_A(0,32000);//按下WKUP，回零点 0.8cm/s
-//		}else if(keyval==KEY2_PRES)
-//		{
-//			LED1=1;
-//      A_abs_distance(30,32000);// 2cm/s 前进30mm
+//			Locate_Abs_A(0,20000);//按下WKUP，回零点 0.8cm/s
 //		}else if(keyval==KEY3_PRES)
 //		{
 //			LED1=1;
-//			A_rle_distance(5,32000);
+//      A_abs_distance(30,10000);// 2cm/s 前进30mm
+//		}else if(keyval==KEY4_PRES)
+//		{
+//			LED1=1;
+//			A_rle_distance(10,1000);
 //		}			
 	}			
 }

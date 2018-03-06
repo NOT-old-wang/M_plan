@@ -25,7 +25,7 @@ void ui_start(void)
 	{
 		case  KEY1_PRES:			  
 				All_motor_start(A_move_mm,B_move_mm,C_move_mm);  //启动
-		    Welcome();
+		    Start();
 				break; 
 		case  KEY2_PRES:	
         All_motor_stop();		//停止
@@ -95,7 +95,7 @@ void motor_distance()
 			 }
 			 motor_distance_window();
 			 break;
-   case  KEY7_PRES:		   //选择电机 
+   case  KEY2_PRES:		   //选择电机 
 			 	 if(motor_type<4) motor_type+=1;
 	       if(motor_type==4) motor_type=1;
 	       delay_ms(400);
@@ -161,10 +161,10 @@ void motor_adjust()     //微调
 
 }
 
-void Welcome(void)
+void Start(void)
 {
 	 OLED_Clear();
-	 OLED_ShowString(20,20,"Welcome",24);
+	 OLED_ShowString(20,20,"start",24);
 	 OLED_Refresh_Gram();		//更新显示到OLED 
    delay_ms(1800);
 }

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\OBJ\USMART.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\USMART.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Sat Mar 03 19:25:45 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Tue Mar 06 09:55:30 2018
 <BR><P>
 <H3>Maximum Stack Usage =        372 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -384,7 +384,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_distance
+<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_distance
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ui_start
 </UL>
 
@@ -536,7 +536,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM1_Startup
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;A_abs_distance
+<BR>[Called By]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;All_motor_back
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;A_abs_distance
 <LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AY_MOVE
 <LI><a href="#[d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AY_back_zero
 </UL>
@@ -558,15 +559,11 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> usmart_config.o(.data)
 </UL>
-<P><STRONG><a name="[a5]"></a>A_abs_distance</STRONG> (Thumb, 44 bytes, Stack size 32 bytes, driver.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = A_abs_distance &rArr; Locate_Abs_A &rArr; TIM1_Startup
-</UL>
-<BR>[Calls]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Locate_Abs_A
+<P><STRONG><a name="[a5]"></a>A_abs_distance</STRONG> (Thumb, 44 bytes, Stack size 32 bytes, driver.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Locate_Abs_A
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-</UL>
-<BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;All_motor_start
 </UL>
 
 <P><STRONG><a name="[a8]"></a>Y_abs_distance</STRONG> (Thumb, 44 bytes, Stack size 32 bytes, driver.o(.text), UNUSED)
@@ -576,11 +573,15 @@ Global Symbols
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 </UL>
 
-<P><STRONG><a name="[a9]"></a>A_rle_distance</STRONG> (Thumb, 46 bytes, Stack size 32 bytes, driver.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Locate_Rle_A
+<P><STRONG><a name="[a9]"></a>A_rle_distance</STRONG> (Thumb, 46 bytes, Stack size 32 bytes, driver.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = A_rle_distance &rArr; Locate_Rle_A &rArr; TIM1_Startup
+</UL>
+<BR>[Calls]<UL><LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Locate_Rle_A
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+</UL>
+<BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;All_motor_start
 </UL>
 
 <P><STRONG><a name="[aa]"></a>Y_rle_distance</STRONG> (Thumb, 46 bytes, Stack size 32 bytes, driver.o(.text), UNUSED)
@@ -591,118 +592,122 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[ab]"></a>All_motor_start</STRONG> (Thumb, 20 bytes, Stack size 16 bytes, driver.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = All_motor_start &rArr; A_abs_distance &rArr; Locate_Abs_A &rArr; TIM1_Startup
+<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = All_motor_start &rArr; A_rle_distance &rArr; Locate_Rle_A &rArr; TIM1_Startup
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;A_abs_distance
+<BR>[Calls]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;A_rle_distance
 </UL>
 <BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ui_start
 </UL>
 
-<P><STRONG><a name="[ba]"></a>All_motor_stop</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, driver.o(.text))
+<P><STRONG><a name="[bb]"></a>All_motor_stop</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, driver.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ui_start
 </UL>
 
-<P><STRONG><a name="[bc]"></a>All_motor_back</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, driver.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ui_start
+<P><STRONG><a name="[ac]"></a>All_motor_back</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, driver.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = All_motor_back &rArr; Locate_Abs_A &rArr; TIM1_Startup
+</UL>
+<BR>[Calls]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Locate_Abs_A
+</UL>
+<BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ui_start
 </UL>
 
-<P><STRONG><a name="[ad]"></a>OLED_WR_Byte</STRONG> (Thumb, 80 bytes, Stack size 8 bytes, oled.o(.text))
+<P><STRONG><a name="[ae]"></a>OLED_WR_Byte</STRONG> (Thumb, 80 bytes, Stack size 8 bytes, oled.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = OLED_WR_Byte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Display_Off
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Display_On
-<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Refresh_Gram
+<BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Display_Off
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Display_On
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Refresh_Gram
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Init
 </UL>
 
-<P><STRONG><a name="[ac]"></a>OLED_Refresh_Gram</STRONG> (Thumb, 70 bytes, Stack size 12 bytes, oled.o(.text))
+<P><STRONG><a name="[ad]"></a>OLED_Refresh_Gram</STRONG> (Thumb, 70 bytes, Stack size 12 bytes, oled.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = OLED_Refresh_Gram &rArr; OLED_WR_Byte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
+<BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
 </UL>
 <BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_speed_window
-<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Welcome
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_distance_window
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Fill
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Clear
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Start
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_distance_window
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Fill
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Clear
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main_window
 </UL>
 
-<P><STRONG><a name="[ae]"></a>OLED_Display_On</STRONG> (Thumb, 28 bytes, Stack size 4 bytes, oled.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
+<P><STRONG><a name="[af]"></a>OLED_Display_On</STRONG> (Thumb, 28 bytes, Stack size 4 bytes, oled.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
 </UL>
 
-<P><STRONG><a name="[af]"></a>OLED_Display_Off</STRONG> (Thumb, 28 bytes, Stack size 4 bytes, oled.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
+<P><STRONG><a name="[b0]"></a>OLED_Display_Off</STRONG> (Thumb, 28 bytes, Stack size 4 bytes, oled.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
 </UL>
 
-<P><STRONG><a name="[b0]"></a>OLED_Clear</STRONG> (Thumb, 42 bytes, Stack size 12 bytes, oled.o(.text))
+<P><STRONG><a name="[b1]"></a>OLED_Clear</STRONG> (Thumb, 42 bytes, Stack size 12 bytes, oled.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = OLED_Clear &rArr; OLED_Refresh_Gram &rArr; OLED_WR_Byte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Refresh_Gram
+<BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Refresh_Gram
 </UL>
 <BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_speed_window
-<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Welcome
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_distance_window
-<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowString
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Start
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_distance_window
+<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowString
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main_window
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Init
 </UL>
 
-<P><STRONG><a name="[b2]"></a>OLED_DrawPoint</STRONG> (Thumb, 100 bytes, Stack size 20 bytes, oled.o(.text))
+<P><STRONG><a name="[b3]"></a>OLED_DrawPoint</STRONG> (Thumb, 100 bytes, Stack size 20 bytes, oled.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = OLED_DrawPoint
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowChar
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Fill
+<BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowChar
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Fill
 </UL>
 
-<P><STRONG><a name="[b1]"></a>OLED_Fill</STRONG> (Thumb, 58 bytes, Stack size 32 bytes, oled.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_DrawPoint
-<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Refresh_Gram
+<P><STRONG><a name="[b2]"></a>OLED_Fill</STRONG> (Thumb, 58 bytes, Stack size 32 bytes, oled.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_DrawPoint
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Refresh_Gram
 </UL>
 
-<P><STRONG><a name="[b3]"></a>OLED_ShowChar</STRONG> (Thumb, 254 bytes, Stack size 40 bytes, oled.o(.text))
+<P><STRONG><a name="[b4]"></a>OLED_ShowChar</STRONG> (Thumb, 254 bytes, Stack size 40 bytes, oled.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = OLED_ShowChar &rArr; OLED_DrawPoint
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_DrawPoint
+<BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_DrawPoint
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowString
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowNum
+<BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowString
+<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowNum
 </UL>
 
-<P><STRONG><a name="[b5]"></a>mypow</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, oled.o(.text))
+<P><STRONG><a name="[b6]"></a>mypow</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, oled.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = mypow
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowNum
+<BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowNum
 </UL>
 
-<P><STRONG><a name="[b4]"></a>OLED_ShowNum</STRONG> (Thumb, 148 bytes, Stack size 56 bytes, oled.o(.text))
+<P><STRONG><a name="[b5]"></a>OLED_ShowNum</STRONG> (Thumb, 148 bytes, Stack size 56 bytes, oled.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 116<LI>Call Chain = OLED_ShowNum &rArr; OLED_ShowChar &rArr; OLED_DrawPoint
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mypow
-<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowChar
+<BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mypow
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowChar
 </UL>
 <BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_speed_window
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_distance_window
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_distance_window
 </UL>
 
-<P><STRONG><a name="[b6]"></a>OLED_ShowString</STRONG> (Thumb, 94 bytes, Stack size 24 bytes, oled.o(.text))
+<P><STRONG><a name="[b7]"></a>OLED_ShowString</STRONG> (Thumb, 94 bytes, Stack size 24 bytes, oled.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = OLED_ShowString &rArr; OLED_ShowChar &rArr; OLED_DrawPoint
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowChar
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Clear
+<BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowChar
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Clear
 </UL>
 <BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_speed_window
-<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Welcome
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_distance_window
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Start
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_distance_window
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main_window
 </UL>
 
 <P><STRONG><a name="[7e]"></a>OLED_Init</STRONG> (Thumb, 374 bytes, Stack size 8 bytes, oled.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = OLED_Init &rArr; OLED_Clear &rArr; OLED_Refresh_Gram &rArr; OLED_WR_Byte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Clear
-<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
+<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Clear
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
 <LI><a href="#[6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
@@ -715,37 +720,37 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ui_start
 </UL>
 
-<P><STRONG><a name="[bb]"></a>motor_speed</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, display.o(.text))
+<P><STRONG><a name="[bc]"></a>motor_speed</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, display.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ui_start
 </UL>
 
-<P><STRONG><a name="[b7]"></a>motor_distance_window</STRONG> (Thumb, 150 bytes, Stack size 8 bytes, display.o(.text))
+<P><STRONG><a name="[b8]"></a>motor_distance_window</STRONG> (Thumb, 150 bytes, Stack size 8 bytes, display.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 124<LI>Call Chain = motor_distance_window &rArr; OLED_ShowNum &rArr; OLED_ShowChar &rArr; OLED_DrawPoint
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowString
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowNum
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Clear
-<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Refresh_Gram
+<BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowString
+<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowNum
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Clear
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Refresh_Gram
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_distance
+<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_distance
 </UL>
 
-<P><STRONG><a name="[b8]"></a>motor_distance</STRONG> (Thumb, 296 bytes, Stack size 8 bytes, display.o(.text))
+<P><STRONG><a name="[b9]"></a>motor_distance</STRONG> (Thumb, 296 bytes, Stack size 8 bytes, display.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 132<LI>Call Chain = motor_distance &rArr; motor_distance_window &rArr; OLED_ShowNum &rArr; OLED_ShowChar &rArr; OLED_DrawPoint
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_distance_window
+<BR>[Calls]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_distance_window
 <LI><a href="#[6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY_Scan
 </UL>
 <BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ui_start
 </UL>
 
-<P><STRONG><a name="[b9]"></a>Welcome</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, display.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 92<LI>Call Chain = Welcome &rArr; OLED_ShowString &rArr; OLED_ShowChar &rArr; OLED_DrawPoint
+<P><STRONG><a name="[ba]"></a>Start</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, display.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 92<LI>Call Chain = Start &rArr; OLED_ShowString &rArr; OLED_ShowChar &rArr; OLED_DrawPoint
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowString
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Clear
-<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Refresh_Gram
+<BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowString
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Clear
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Refresh_Gram
 <LI><a href="#[6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 </UL>
 <BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ui_start
@@ -754,12 +759,12 @@ Global Symbols
 <P><STRONG><a name="[85]"></a>ui_start</STRONG> (Thumb, 92 bytes, Stack size 8 bytes, display.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 140<LI>Call Chain = ui_start &rArr; motor_distance &rArr; motor_distance_window &rArr; OLED_ShowNum &rArr; OLED_ShowChar &rArr; OLED_DrawPoint
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Welcome
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_distance
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_speed
+<BR>[Calls]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Start
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_distance
+<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_speed
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_adjust
-<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;All_motor_back
-<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;All_motor_stop
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;All_motor_back
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;All_motor_stop
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;All_motor_start
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY_Scan
 </UL>
@@ -769,19 +774,19 @@ Global Symbols
 <P><STRONG><a name="[82]"></a>main_window</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, display.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 92<LI>Call Chain = main_window &rArr; OLED_ShowString &rArr; OLED_ShowChar &rArr; OLED_DrawPoint
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowString
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Clear
-<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Refresh_Gram
+<BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowString
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Clear
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Refresh_Gram
 <LI><a href="#[6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 </UL>
 <BR>[Called By]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[be]"></a>motor_speed_window</STRONG> (Thumb, 146 bytes, Stack size 16 bytes, display.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowString
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowNum
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Clear
-<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Refresh_Gram
+<BR><BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowString
+<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowNum
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Clear
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Refresh_Gram
 </UL>
 
 <P><STRONG><a name="[7a]"></a>delay_init</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, delay.o(.text))
@@ -796,8 +801,8 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> usmart_config.o(.data)
 </UL>
 <P><STRONG><a name="[6]"></a>delay_ms</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, delay.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Welcome
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_distance
+<BR><BR>[Called By]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Start
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_distance
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY_Scan
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main_window
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Init
