@@ -25,10 +25,10 @@ void ui_start(void)
 	{
 		case  KEY1_PRES:			  
 				All_motor_start(A_move_mm,B_move_mm,C_move_mm);  //启动
-		    Start();
+		    main_window();
 				break; 
 		case  KEY2_PRES:	
-        All_motor_stop();		//停止
+        All_motor_stop();		//停止  选择电机
 				break; 
 		case  KEY3_PRES:			 
 				motor_distance();   //电机位移设置界面;
@@ -55,7 +55,7 @@ void ui_start(void)
 void main_window()
 {
 	OLED_Clear();
-	OLED_ShowString(20,20,"M-project",24);
+	OLED_ShowString(12,20,"project-M",24);
 	OLED_Refresh_Gram();		//更新显示到OLED 
   delay_ms(1800);
 }
@@ -131,25 +131,69 @@ void motor_distance_window()
 
 void motor_speed()
 {
+	motor_speed_window();
+	while(1)
+	{
+		KEY_TYPE=KEY_Scan(0);
+	  switch(KEY_TYPE)
+	 {
+		case  KEY1_PRES:			 //确认 
+			goto out2; 
+				break; 
+		case  KEY3_PRES:			 	//增大
+			 switch(motor_type)
+			 {
+				 case A_moto: A_move_speed+=100; 
+					 break;
+				 case B_moto: B_move_speed+=100;
+					 break;
+				 case C_moto: C_move_speed+=100; 
+					 break;
+			 }
+			 motor_speed_window();
+			 break;
+		case  KEY4_PRES:		   //减小  
+			 switch(motor_type)
+			 {
+				 case A_moto: A_move_speed-=100; 
+					 break;
+				 case B_moto: B_move_speed-=100;
+					 break;
+				 case C_moto: C_move_speed-=100; 
+			 }
+			 motor_speed_window();
+			 break;
+   case  KEY2_PRES:		   //选择电机 
+			 	 if(motor_type<4) motor_type+=1;
+	       if(motor_type==4) motor_type=1;
+	       delay_ms(400);
+	   	 break;
+				
+	 default : 
+				 break;
+	 }
+//	delay_ms(100);
+	}
+	out2:;
 	
 }
 
 void motor_speed_window()
 {
-	u16 a=20;
+//	u16 a=20;
 	OLED_Clear();
 	OLED_ShowString(3,5,"motor_speed",12);
 	
 	OLED_ShowString(3,20,"motor A:",12); 
-	OLED_ShowNum(55,20,a,3,12);
+	OLED_ShowNum(55,20,A_move_speed,5,12);
 	OLED_ShowString(80,20,"mm/s",12);
 
 	OLED_ShowString(3,35,"motor B:",12); 
-	OLED_ShowNum(55,35,a,3,12);
+	OLED_ShowNum(55,35,B_move_speed,5,12);
 	OLED_ShowString(80,35,"mm/s",12);
 	
 	OLED_ShowString(3,50,"motor C:",12); 
-	OLED_ShowNum(55,50,a,3,12);
+	OLED_ShowNum(55,50,C_move_speed,5,12);
 	OLED_ShowString(80,50,"mm/s",12);
 	
 	OLED_Refresh_Gram();		//更新显示到OLED 

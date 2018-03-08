@@ -429,19 +429,19 @@ void A_rle_distance(long dis,u32 frequency)
 { 
 	long num;
 	num=dis/One_Pulse_Distance;
-	Locate_Rle_A(num,frequency,CW);
+	Locate_Rle_A(num,frequency,CCW);
 }
 
 void Y_rle_distance(long dis,u32 frequency)
 { 
 	long num;
 	num=dis/One_Pulse_Distance;
-	Locate_Rle_Y(num,frequency,CW);
+	Locate_Rle_Y(num,frequency,CCW);
 }
 
 void All_motor_start(long A,long B,long C)
 {
-	  A_rle_distance(A,20000); 
+	  A_rle_distance(A,32000); 
 //	B_rle_distance(B,32000);
 //	C_rle_distance(C,32000);
 }
