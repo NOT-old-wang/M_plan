@@ -365,7 +365,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\user;..\SYSTEM;..\STM32F10x_FWLib\inc;..\led;..\CORE;..\exti;..\key;..\time;..\dma;..\OLED;..\shell;..\step-motor</IncludePath>
+              <IncludePath>..\user;..\SYSTEM;..\STM32F10x_FWLib\inc;..\led;..\CORE;..\exti;..\key;..\time;..\dma;..\OLED;..\shell;..\step-motor;..\ui</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -577,6 +577,16 @@
               <FileName>step_motor.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\step-motor\step_motor.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>ui</GroupName>
+          <Files>
+            <File>
+              <FileName>display.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ui\display.c</FilePath>
             </File>
           </Files>
         </Group>

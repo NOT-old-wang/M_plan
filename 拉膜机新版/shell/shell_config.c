@@ -22,10 +22,8 @@ struct _m_usmart_nametab usmart_nametab[]=
 	(void*)read_addr,"u32 read_addr(u32 addr)",
 	(void*)write_addr,"void write_addr(u32 addr,u32 val)",	 
 #endif
-	(void*)X_Locate_Rle,"X_Locate_Rle(s16 distance,float frv,motor_Type motor_num)", //x相对定位函数
-	(void*)x_step_angle,"u8 x_step_angle(s16 angle,float frv)" ,
-	(void*)y_step_angle,"u8 y_step_angle(s16 angle,float frv)",
-	(void*)x_y_step_angle,"x_y_step_angle(s16 x_angle,s16 y_angle,float frv)",
+	(void*)Locate_Rle,"Locate_Rle(s16 distance,float frv,motor_Type motor_num)", //相对定位函数
+  (void*)motor_start,"motor_start(s16 X_distance,float X_frequency,s16 Y_distance,float Y_frequency,s16 Z_distance,float Z_frequency)",
 	(void*)led_flicker,"int led_flicker(u8 number,u16 time_ms)",
 	(void*)led_set,"void led_set(u8 sta)",
 	(void*)test_fun,"void test_fun(void(*ledset)(u8),u8 sta)",				  	    

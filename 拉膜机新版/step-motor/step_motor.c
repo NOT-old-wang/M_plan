@@ -1,7 +1,6 @@
 #include "step_motor.h"
 
 vu32 double_cycle = 0;
-//vu32 double_pluse = 51200;
 vu32 x_Pluse = 0;
 vu32 y_Pluse = 0;
 vu32 z_Pluse = 0;
@@ -35,15 +34,6 @@ void step_motor_init()  //电机初始化
 	GPIO_Init(GPIOC,&GPIO_InitStructure);
 	GPIO_ResetBits(GPIOC,GPIO_Pin_6|GPIO_Pin_7|GPIO_Pin_8);
 	//电机使能管脚
-//	GPIO_InitStructure.GPIO_Pin=GPIO_Pin_8|GPIO_Pin_9;
-//	GPIO_InitStructure.GPIO_Mode=GPIO_Mode_Out_OD;  ///开漏 !!!!!
-//	GPIO_InitStructure.GPIO_Speed=GPIO_Speed_50MHz;
-//	GPIO_Init(GPIOC,&GPIO_InitStructure);
-//	GPIO_SetBits(GPIOC,GPIO_Pin_8|GPIO_Pin_9);
-	
-//	frequency=step_frv_motor(100);//测试用
-//	 time6_Init(frequency,71); //x_motor
- //  time7_Init(1,71);         //y_motor  
   
 	 TIM6->CR1&=0xfe;    //关闭定时器6	 
 	 TIM7->CR1&=0xfe;    //关闭定时器7	 
@@ -221,7 +211,6 @@ u8 x_step_motor(u16 distance,u8 dir,float frv)  //X轴方向距离速度控制
 	frequency=step_frv_motor(frv);//由频率计算计数值
 	x_step_motor_start();//开始驱动电机
 	return 0;
-
 }
 
 u8 y_step_motor(u16 distance,u8 dir,float frv)  //Y轴方向距离速度控制
@@ -277,7 +266,7 @@ u8 z_step_motor(u16 distance,u8 dir,float frv)  //Y轴方向距离速度控制
 
 //}
 
-void X_Locate_Rle(s16 distance,float frv,motor_Type motor_num) //X相对定位函数
+void X_Locate_Rle(s16 distance,float frv) //X相对定位函数
 {
  if(distance>=0)
 	{
@@ -289,7 +278,7 @@ void X_Locate_Rle(s16 distance,float frv,motor_Type motor_num) //X相对定位函数
 	}
 }
 
-void Y_Locate_Rle(s16 distance,float frv,motor_Type motor_num) //Y相对定位函数
+void Y_Locate_Rle(s16 distance,float frv) //Y相对定位函数
 {
  if(distance>=0)
 	{
@@ -301,7 +290,7 @@ void Y_Locate_Rle(s16 distance,float frv,motor_Type motor_num) //Y相对定位函数
 	}
 }
 
-void Z_Locate_Rle(s16 distance,float frv,motor_Type motor_num) //Z相对定位函数
+void Z_Locate_Rle(s16 distance,float frv) //Z相对定位函数
 {
  if(distance>=0)
 	{
@@ -313,19 +302,32 @@ void Z_Locate_Rle(s16 distance,float frv,motor_Type motor_num) //Z相对定位函数
 	}
 }
 
-u8 Locate_Rle(s16 distance,float frv,u8 motor_num) //相对定位函数
+void Locate_Rle(s16 distance,float frv,u8 motor_num) //相对定位函数
 {
   if(motor_num==X)
 	{
-		X_Locate_Rle(distance,frv,X);
+		X_Locate_Rle(distance,frv);
 	}
 	else if(motor_num==Y)
 	{
-		Y_Locate_Rle(distance,frv,Y);
+		Y_Locate_Rle(distance,frv);
 	}else if(motor_num==Z)
 	{
-    Z_Locate_Rle(distance,frv,Z);
+    Z_Locate_Rle(distance,frv);
+	}else if(motor_num==ALL)
+	{
+		X_Locate_Rle(distance,frv);
+		Y_Locate_Rle(distance,frv);
+    Z_Locate_Rle(distance,frv);
 	}
-	return 0;
+}
+
+void motor_start(s16 X_distance,float X_frequency,
+	               s16 Y_distance,float Y_frequency,
+								 s16 Z_distance,float Z_frequency)
+{
+	X_Locate_Rle(X_distance,X_frequency);
+	Y_Locate_Rle(Y_distance,Y_frequency);
+  Z_Locate_Rle(Z_distance,Z_frequency);
 }
 

@@ -17,6 +17,7 @@ typedef enum
 	X  = 0,//X轴电机
 	Y  = 1,//Y轴电机
 	Z  = 2,//Z轴电机
+	ALL = 3,//所有电机
 	
 }motor_Type;//选取哪个电机
 
@@ -41,7 +42,7 @@ u32 step_circle_pulse(u8 circle);//圈数转化成脉冲数
 
 u8 x_step_motor(u16 distance,u8 dir,float frv);  //X轴方向距离控制.输入距离，方向，频率即可
 u8 y_step_motor(u16 distance,u8 dir,float frv);  //Y轴方向距离控制
-u8 z_step_motor(u16 distance,u8 dir,float frv);  //Y轴方向距离控制
+u8 z_step_motor(u16 distance,u8 dir,float frv);  //Z轴方向距离控制
 
 u32 step_frv_motor(float frv); //频率计算  输入HZ
 u16 step_angle_motor(u16 Angle);//角度计算出X轴y轴脉冲
@@ -51,11 +52,17 @@ u8 x_step_angle(s16 angle,float frv);  //X轴方向距离控制.输入角度，频率即可
 u8 y_step_angle(s16 angle,float frv);  //Y轴方向距离控制.输入角度，频率即可
 u8 x_y_step_angle(s16 x_angle,s16 y_angle,float frv);
 
-/***输入距离(带正负)，频率，哪个电机***/
-void X_Locate_Rle(s16 distance,float frv,motor_Type motor_num); //相对定位函数
-void Y_Locate_Rle(s16 distance,float frv,motor_Type motor_num); //相对定位函数
-void Z_Locate_Rle(s16 distance,float frv,motor_Type motor_num); //相对定位函数
-u8 Locate_Rle(s16 distance,float frv,motor_Type motor_num); //相对定位函数
+/***输入距离(带正负)，频率，哪个电机*  相对坐标系**/
+void X_Locate_Rle(s16 distance,float frv); //X相对定位函数
+void Y_Locate_Rle(s16 distance,float frv); //Y相对定位函数
+void Z_Locate_Rle(s16 distance,float frv); //Z相对定位函数
+void Locate_Rle(s16 distance,float frv,motor_Type motor_num); //相对定位函数
+
+
+void motor_start(s16 X_distance,float X_frequency,
+	               s16 Y_distance,float Y_frequency,
+								 s16 Z_distance,float Z_frequency);
+
 /***************************/
 
 /**输入距离(带正负)，频率，哪个电机***/

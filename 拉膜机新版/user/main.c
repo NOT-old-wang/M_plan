@@ -8,11 +8,8 @@
 #include  "shell.h"
 #include "oled.h"
 #include "step_motor.h"
+#include "display.h"
 
-
-extern vu32 frequency;
-extern vu32 double_cycle;
-extern vu32 double_pluse;
 
 extern vu32 x_Pluse;
 extern vu32 y_Pluse;
@@ -23,7 +20,7 @@ extern vu32 y_need_Pluse;
 extern vu32 z_need_Pluse;
 
 
-/*使用的资源   2相，128细分，1.8度步距角      老王2017/7/13
+/*使用的资源   2相，32细分，1.8度步距角      老王2018/3/1
 TIM5 TIM6 TIM7  --的两个定时器来模拟控制步进，
 可以修改step_motor.h里的宏定义
 TIM4--shell

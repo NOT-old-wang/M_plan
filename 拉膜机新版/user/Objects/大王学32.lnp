@@ -23,6 +23,7 @@
 ".\objects\shell_config.o"
 ".\objects\shell_str.o"
 ".\objects\step_motor.o"
+".\objects\display.o"
 --strict --scatter ".\Objects\¥ÛÕı—ß32.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
