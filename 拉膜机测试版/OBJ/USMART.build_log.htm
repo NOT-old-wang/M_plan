@@ -26,7 +26,24 @@ Project File Date:  03/04/2018
 
 <h2>Output:</h2>
 Build target 'USMART'
-"..\OBJ\USMART.axf" - 0 Error(s), 0 Warning(s).
+compiling main.c...
+..\HARDWARE\DRIVER\driver.h(73): warning:  #1295-D: Deprecated declaration All_motor_stop - give arg types
+  void All_motor_stop();
+..\HARDWARE\DRIVER\driver.h(74): warning:  #1295-D: Deprecated declaration All_motor_back - give arg types
+  void All_motor_back();
+..\HARDWARE\OLED\display.h(17): warning:  #1295-D: Deprecated declaration motor_distance - give arg types
+  void motor_distance(); //电机位移设置界面
+..\HARDWARE\OLED\display.h(18): warning:  #1295-D: Deprecated declaration motor_distance_window - give arg types
+  void motor_distance_window();
+..\HARDWARE\OLED\display.h(20): warning:  #1295-D: Deprecated declaration motor_speed - give arg types
+  void motor_speed();    //电机速度设置界面
+..\HARDWARE\OLED\display.h(21): warning:  #1295-D: Deprecated declaration motor_speed_window - give arg types
+  void motor_speed_window();
+main.c: 6 warnings, 0 errors
+linking...
+Program Size: Code=23600 RO-data=7088 RW-data=468 ZI-data=2860  
+FromELF: creating hex file...
+"..\OBJ\USMART.axf" - 0 Error(s), 6 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   E:\拉膜机\拉膜机测试版\USER\RTE
