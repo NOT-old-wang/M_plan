@@ -65,7 +65,6 @@ int main()
 				 step_motor_STOP(); 
 					break; 
 				case KEY2_PRES:	//启动	 
-//				x_y_step_angle(45,-45,30000);
 					break;
 				case KEY3_PRES:	
 				Locate_Rle(10,10000,X); //相对定位函数 X轴10000HZ的速度前进10mm	
@@ -77,7 +76,7 @@ int main()
 				Locate_Rle(-20,20000,Y); //相对定位函数 Y轴20000HZ的速度后退20mm
 				Locate_Rle(-30,30000,Z); //相对定位函数 Z轴30000HZ的速度后退30mm
 					break;
-				case KEY5_PRES:	   //自动
+				case KEY5_PRES:	//自动
 					break;
 			}
 		}

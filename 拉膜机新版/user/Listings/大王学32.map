@@ -320,6 +320,9 @@ Section Cross References
     display.o(i.main_window) refers to oled.o(i.OLED_ShowString) for OLED_ShowString
     display.o(i.main_window) refers to oled.o(i.OLED_Refresh_Gram) for OLED_Refresh_Gram
     display.o(i.main_window) refers to delay.o(i.delay_ms) for delay_ms
+    display.o(i.motor_adjust) refers to key.o(i.KEY_Scan) for KEY_Scan
+    display.o(i.motor_adjust) refers to step_motor.o(i.Locate_Rle) for Locate_Rle
+    display.o(i.motor_adjust) refers to display.o(.data) for KEY_TYPE
     display.o(i.motor_distance) refers to display.o(i.motor_distance_window) for motor_distance_window
     display.o(i.motor_distance) refers to key.o(i.KEY_Scan) for KEY_Scan
     display.o(i.motor_distance) refers to delay.o(i.delay_ms) for delay_ms
@@ -746,15 +749,15 @@ Removing Unused input sections from the image.
     Removing step_motor.o(i.y_step_angle), (132 bytes).
     Removing display.o(i.Start), (40 bytes).
     Removing display.o(i.main_window), (44 bytes).
-    Removing display.o(i.motor_adjust), (2 bytes).
+    Removing display.o(i.motor_adjust), (132 bytes).
     Removing display.o(i.motor_distance), (344 bytes).
     Removing display.o(i.motor_distance_window), (224 bytes).
     Removing display.o(i.motor_speed), (264 bytes).
     Removing display.o(i.motor_speed_window), (244 bytes).
-    Removing display.o(i.ui_start), (256 bytes).
+    Removing display.o(i.ui_start), (260 bytes).
     Removing display.o(.data), (22 bytes).
 
-206 unused section(s) (total 17116 bytes) removed from the image.
+206 unused section(s) (total 17250 bytes) removed from the image.
 
 ==============================================================================
 

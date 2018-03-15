@@ -57,7 +57,7 @@ void ui_start(void)
 		    motor_speed();      //电机速度设置界面
 				break;
 		case  KEY5_PRES:			 
-//				All_motor_back();	  //归零 
+  		  motor_adjust();  //归零 
 				break; 
 		case  KEY6_PRES:			 
 				motor_adjust();     //微调
@@ -89,7 +89,7 @@ void motor_distance()
 	  switch(KEY_TYPE)
 	 {
 		case  KEY1_PRES:			 //确认 
-			goto out1; 
+			goto distanceout; 
 				break; 
 		case  KEY3_PRES:			 	//增大
 			 switch(motor_type)
@@ -126,7 +126,7 @@ void motor_distance()
 	 }
 	delay_ms(100);
 	}
-	out1:;
+	distanceout:;
 }
 
 void motor_distance_window()
@@ -158,7 +158,7 @@ void motor_speed()
 	  switch(KEY_TYPE)
 	 {
 		case  KEY1_PRES:			 //确认 
-			goto out2; 
+			goto speedout; 
 				break; 
 		case  KEY3_PRES:			 	//增大
 			 switch(motor_type)
@@ -194,7 +194,7 @@ void motor_speed()
 	 }
 //	delay_ms(100);
 	}
-	out2:;
+	speedout:;
 	
 }
 
@@ -222,7 +222,38 @@ void motor_speed_window()
 
 void motor_adjust()     //微调
 {
-
+  while(1)
+ {
+	KEY_TYPE=KEY_Scan(0);
+	 switch(KEY_TYPE)
+	{
+		case  KEY1_PRES:
+      goto adjustout;
+				break; 
+		case  KEY2_PRES:	
+      Locate_Rle(10,5000,X); 
+				break; 
+		case  KEY3_PRES:			 
+      Locate_Rle(-10,5000,X);
+				break;
+	  case  KEY4_PRES:		      
+      Locate_Rle(10,5000,Y);
+				break;
+		case  KEY5_PRES:			 
+      Locate_Rle(-10,5000,Y); 
+				break; 
+		case  KEY6_PRES:			 
+      Locate_Rle(10,5000,Z);
+				break;
+	  case  KEY7_PRES:		     
+      Locate_Rle(-10,5000,X);		    
+				break; 
+		default : 
+				break;
+				//此处添加按键错误代码
+	}
+ }
+ adjustout:;
 }
 
 void Start(void)
