@@ -246,7 +246,7 @@ void motor_adjust()     //Î¢µ÷
       Locate_Rle(10,5000,Z);
 				break;
 	  case  KEY7_PRES:		     
-      Locate_Rle(-10,5000,X);		    
+      Locate_Rle(-10,5000,Z);		    
 				break; 
 		default : 
 				break;

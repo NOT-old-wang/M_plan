@@ -67,14 +67,14 @@ int main()
 				case KEY2_PRES:	//启动	 
 					break;
 				case KEY3_PRES:	
-				Locate_Rle(10,10000,X); //相对定位函数 X轴10000HZ的速度前进10mm	
-				Locate_Rle(20,20000,Y); //相对定位函数 Y轴20000HZ的速度前进20mm
-				Locate_Rle(30,30000,Z); //相对定位函数 Z轴30000HZ的速度前进30mm
+				Locate_Rle(20,20000,X); //相对定位函数 	20mm  20000HZd的速度  X轴
+				Locate_Rle(20,20000,Y); //相对定位函数 
+				Locate_Rle(30,30000,Z); //相对定位函数 
 					break;
 			  case KEY4_PRES:	//测试	 
-				Locate_Rle(-10,10000,X); //相对定位函数 X轴10000HZ的速度后退10mm	
-				Locate_Rle(-20,20000,Y); //相对定位函数 Y轴20000HZ的速度后退20mm
-				Locate_Rle(-30,30000,Z); //相对定位函数 Z轴30000HZ的速度后退30mm
+				Locate_Rle(-20,20000,X); 
+				Locate_Rle(-20,20000,Y); 
+				Locate_Rle(-30,20000,Z); 
 					break;
 				case KEY5_PRES:	//自动
 					break;
