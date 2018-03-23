@@ -1,6 +1,8 @@
 #include "step_motor.h"
 
-vu32 double_cycle = 0;
+vu32 x_double_cycle = 0;
+char y_double_cycle = 0;
+vu32 z_double_cycle = 0;
 vu32 x_Pluse = 0;
 vu32 y_Pluse = 0;
 vu32 z_Pluse = 0;
@@ -36,7 +38,8 @@ void step_motor_init()  //电机初始化
 	//电机使能管脚
   
 	 TIM6->CR1&=0xfe;    //关闭定时器6	 
-	 TIM7->CR1&=0xfe;    //关闭定时器7	 
+	 TIM7->CR1&=0xfe;    //关闭定时器7	
+	 TIM5->CR1&=0xfe;    //关闭定时器5	 
 }
 
 void x_step_motor_start() //X电机启动

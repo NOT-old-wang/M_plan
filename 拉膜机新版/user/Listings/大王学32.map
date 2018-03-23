@@ -15,8 +15,7 @@ Section Cross References
     main.o(i.main) refers to key.o(i.KEY_Scan) for KEY_Scan
     main.o(i.main) refers to step_motor.o(i.step_motor_STOP) for step_motor_STOP
     main.o(i.main) refers to step_motor.o(i.Locate_Rle) for Locate_Rle
-    main.o(i.main) refers to system_stm32f10x.o(.data) for SystemCoreClock
-    main.o(i.main) refers to shell_config.o(.data) for usmart_dev
+    main.o(i.main) refers to delay.o(i.delay_ms) for delay_ms
     main.o(i.main) refers to step_motor.o(.data) for x_Pluse
     system_stm32f10x.o(i.SetSysClock) refers to system_stm32f10x.o(i.SetSysClockTo72) for SetSysClockTo72
     system_stm32f10x.o(i.SystemCoreClockUpdate) refers to system_stm32f10x.o(.data) for SystemCoreClock
@@ -111,17 +110,17 @@ Section Cross References
     time.o(i.TIM5_IRQHandler) refers to stm32f10x_tim.o(i.TIM_ClearITPendingBit) for TIM_ClearITPendingBit
     time.o(i.TIM5_IRQHandler) refers to stm32f10x_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
     time.o(i.TIM5_IRQHandler) refers to stm32f10x_gpio.o(i.GPIO_ResetBits) for GPIO_ResetBits
-    time.o(i.TIM5_IRQHandler) refers to step_motor.o(.data) for double_cycle
+    time.o(i.TIM5_IRQHandler) refers to step_motor.o(.data) for z_double_cycle
     time.o(i.TIM6_IRQHandler) refers to stm32f10x_tim.o(i.TIM_GetITStatus) for TIM_GetITStatus
     time.o(i.TIM6_IRQHandler) refers to stm32f10x_tim.o(i.TIM_ClearITPendingBit) for TIM_ClearITPendingBit
     time.o(i.TIM6_IRQHandler) refers to stm32f10x_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
     time.o(i.TIM6_IRQHandler) refers to stm32f10x_gpio.o(i.GPIO_ResetBits) for GPIO_ResetBits
-    time.o(i.TIM6_IRQHandler) refers to step_motor.o(.data) for double_cycle
+    time.o(i.TIM6_IRQHandler) refers to step_motor.o(.data) for x_double_cycle
     time.o(i.TIM7_IRQHandler) refers to stm32f10x_tim.o(i.TIM_GetITStatus) for TIM_GetITStatus
     time.o(i.TIM7_IRQHandler) refers to stm32f10x_tim.o(i.TIM_ClearITPendingBit) for TIM_ClearITPendingBit
     time.o(i.TIM7_IRQHandler) refers to stm32f10x_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
     time.o(i.TIM7_IRQHandler) refers to stm32f10x_gpio.o(i.GPIO_ResetBits) for GPIO_ResetBits
-    time.o(i.TIM7_IRQHandler) refers to step_motor.o(.data) for double_cycle
+    time.o(i.TIM7_IRQHandler) refers to step_motor.o(.data) for y_double_cycle
     time.o(i.time5_Init) refers to stm32f10x_rcc.o(i.RCC_APB1PeriphClockCmd) for RCC_APB1PeriphClockCmd
     time.o(i.time5_Init) refers to stm32f10x_tim.o(i.TIM_TimeBaseInit) for TIM_TimeBaseInit
     time.o(i.time5_Init) refers to stm32f10x_tim.o(i.TIM_ITConfig) for TIM_ITConfig
@@ -993,101 +992,101 @@ Image Symbol Table
     i.TIM5_IRQHandler                        0x08000d18   Section        0  time.o(i.TIM5_IRQHandler)
     i.TIM6_IRQHandler                        0x08000d70   Section        0  time.o(i.TIM6_IRQHandler)
     i.TIM7_IRQHandler                        0x08000dc8   Section        0  time.o(i.TIM7_IRQHandler)
-    i.TIM_ClearFlag                          0x08000e20   Section        0  stm32f10x_tim.o(i.TIM_ClearFlag)
-    i.TIM_ClearITPendingBit                  0x08000e26   Section        0  stm32f10x_tim.o(i.TIM_ClearITPendingBit)
-    i.TIM_Cmd                                0x08000e2c   Section        0  stm32f10x_tim.o(i.TIM_Cmd)
-    i.TIM_GetCounter                         0x08000e44   Section        0  stm32f10x_tim.o(i.TIM_GetCounter)
-    i.TIM_GetFlagStatus                      0x08000e4a   Section        0  stm32f10x_tim.o(i.TIM_GetFlagStatus)
-    i.TIM_GetITStatus                        0x08000e5c   Section        0  stm32f10x_tim.o(i.TIM_GetITStatus)
-    i.TIM_ITConfig                           0x08000e7e   Section        0  stm32f10x_tim.o(i.TIM_ITConfig)
-    i.TIM_SetAutoreload                      0x08000e90   Section        0  stm32f10x_tim.o(i.TIM_SetAutoreload)
-    i.TIM_SetCounter                         0x08000e94   Section        0  stm32f10x_tim.o(i.TIM_SetCounter)
-    i.TIM_TimeBaseInit                       0x08000e98   Section        0  stm32f10x_tim.o(i.TIM_TimeBaseInit)
-    i.Timer4_Init                            0x08000f3c   Section        0  shell.o(i.Timer4_Init)
-    i.USART1_IRQHandler                      0x08000f98   Section        0  usart1.o(i.USART1_IRQHandler)
-    i.USART_Cmd                              0x08001020   Section        0  stm32f10x_usart.o(i.USART_Cmd)
-    i.USART_GetITStatus                      0x08001038   Section        0  stm32f10x_usart.o(i.USART_GetITStatus)
-    i.USART_ITConfig                         0x0800108c   Section        0  stm32f10x_usart.o(i.USART_ITConfig)
-    i.USART_Init                             0x080010d8   Section        0  stm32f10x_usart.o(i.USART_Init)
-    i.USART_ReceiveData                      0x080011b0   Section        0  stm32f10x_usart.o(i.USART_ReceiveData)
-    i.UsageFault_Handler                     0x080011ba   Section        0  stm32f10x_it.o(i.UsageFault_Handler)
-    i.X_Locate_Rle                           0x080011c0   Section        0  step_motor.o(i.X_Locate_Rle)
-    i.Y_Locate_Rle                           0x0800120c   Section        0  step_motor.o(i.Y_Locate_Rle)
-    i.Z_Locate_Rle                           0x08001258   Section        0  step_motor.o(i.Z_Locate_Rle)
-    i._is_digit                              0x080012a4   Section        0  __printf_wp.o(i._is_digit)
-    i._sys_exit                              0x080012b2   Section        0  usart1.o(i._sys_exit)
-    i.delay_init                             0x080012b8   Section        0  delay.o(i.delay_init)
-    i.delay_ms                               0x080012fc   Section        0  delay.o(i.delay_ms)
-    i.fputc                                  0x08001348   Section        0  usart1.o(i.fputc)
-    i.led_flicker                            0x08001364   Section        0  led.o(i.led_flicker)
-    i.led_set                                0x0800139c   Section        0  led.o(i.led_set)
-    i.main                                   0x080013b0   Section        0  main.o(i.main)
-    i.motor_start                            0x080014bc   Section        0  step_motor.o(i.motor_start)
-    i.read_addr                              0x080014e8   Section        0  shell.o(i.read_addr)
-    i.step_calculate                         0x080014f0   Section        0  step_motor.o(i.step_calculate)
-    i.step_frv_motor                         0x08001518   Section        0  step_motor.o(i.step_frv_motor)
-    i.step_motor_STOP                        0x08001550   Section        0  step_motor.o(i.step_motor_STOP)
-    i.step_motor_init                        0x080015ac   Section        0  step_motor.o(i.step_motor_init)
-    i.test_fun                               0x08001628   Section        0  main.o(i.test_fun)
-    i.time5_Init                             0x08001634   Section        0  time.o(i.time5_Init)
-    i.time6_Init                             0x08001690   Section        0  time.o(i.time6_Init)
-    i.time7_Init                             0x080016ec   Section        0  time.o(i.time7_Init)
-    i.uart1_init                             0x08001748   Section        0  usart1.o(i.uart1_init)
-    i.usmart_cmd_rec                         0x080017e8   Section        0  shell.o(i.usmart_cmd_rec)
-    i.usmart_exe                             0x08001898   Section        0  shell.o(i.usmart_exe)
-    i.usmart_get_aparm                       0x08001b6c   Section        0  shell_str.o(i.usmart_get_aparm)
-    i.usmart_get_cmdname                     0x08001c34   Section        0  shell_str.o(i.usmart_get_cmdname)
-    i.usmart_get_fname                       0x08001c6c   Section        0  shell_str.o(i.usmart_get_fname)
-    i.usmart_get_fparam                      0x08001e2c   Section        0  shell_str.o(i.usmart_get_fparam)
-    i.usmart_get_parmpos                     0x08001f38   Section        0  shell_str.o(i.usmart_get_parmpos)
-    i.usmart_get_runtime                     0x08001f58   Section        0  shell.o(i.usmart_get_runtime)
-    i.usmart_init                            0x08001f9c   Section        0  shell.o(i.usmart_init)
-    i.usmart_pow                             0x08001fc4   Section        0  shell_str.o(i.usmart_pow)
-    i.usmart_reset_runtime                   0x08001fdc   Section        0  shell.o(i.usmart_reset_runtime)
-    i.usmart_scan                            0x0800200c   Section        0  shell.o(i.usmart_scan)
-    i.usmart_search_nextc                    0x080020c8   Section        0  shell_str.o(i.usmart_search_nextc)
-    i.usmart_str2num                         0x080020de   Section        0  shell_str.o(i.usmart_str2num)
-    i.usmart_strcmp                          0x080021a8   Section        0  shell_str.o(i.usmart_strcmp)
-    i.usmart_strcopy                         0x080021ca   Section        0  shell_str.o(i.usmart_strcopy)
-    i.usmart_strlen                          0x080021e0   Section        0  shell_str.o(i.usmart_strlen)
-    i.usmart_sys_cmd_exe                     0x080021f8   Section        0  shell.o(i.usmart_sys_cmd_exe)
-    i.write_addr                             0x0800289c   Section        0  shell.o(i.write_addr)
-    i.x_step_direction                       0x080028a0   Section        0  step_motor.o(i.x_step_direction)
-    i.x_step_motor                           0x080028c4   Section        0  step_motor.o(i.x_step_motor)
-    i.x_step_motor_start                     0x080028f8   Section        0  step_motor.o(i.x_step_motor_start)
-    i.x_step_motor_stop                      0x0800290c   Section        0  step_motor.o(i.x_step_motor_stop)
-    i.y_step_direction                       0x08002938   Section        0  step_motor.o(i.y_step_direction)
-    i.y_step_motor                           0x0800295c   Section        0  step_motor.o(i.y_step_motor)
-    i.y_step_motor_start                     0x08002990   Section        0  step_motor.o(i.y_step_motor_start)
-    i.y_step_motor_stop                      0x080029a4   Section        0  step_motor.o(i.y_step_motor_stop)
-    i.z_step_direction                       0x080029d0   Section        0  step_motor.o(i.z_step_direction)
-    i.z_step_motor                           0x080029f4   Section        0  step_motor.o(i.z_step_motor)
-    i.z_step_motor_start                     0x08002a28   Section        0  step_motor.o(i.z_step_motor_start)
-    i.z_step_motor_stop                      0x08002a3c   Section        0  step_motor.o(i.z_step_motor_stop)
-    x$fpl$ddiv                               0x08002a68   Section      688  ddiv.o(x$fpl$ddiv)
-    ddiv_entry                               0x08002a6f   Thumb Code     0  ddiv.o(x$fpl$ddiv)
-    x$fpl$dfixu                              0x08002d18   Section       90  dfixu.o(x$fpl$dfixu)
-    x$fpl$dfltu                              0x08002d72   Section       38  dflt_clz.o(x$fpl$dfltu)
-    x$fpl$dnaninf                            0x08002d98   Section      156  dnaninf.o(x$fpl$dnaninf)
-    x$fpl$dretinf                            0x08002e34   Section       12  dretinf.o(x$fpl$dretinf)
-    x$fpl$fadd                               0x08002e40   Section      196  faddsub_clz.o(x$fpl$fadd)
-    _fadd1                                   0x08002e4f   Thumb Code     0  faddsub_clz.o(x$fpl$fadd)
-    x$fpl$fdiv                               0x08002f04   Section      388  fdiv.o(x$fpl$fdiv)
-    _fdiv1                                   0x08002f05   Thumb Code     0  fdiv.o(x$fpl$fdiv)
-    x$fpl$ffixu                              0x08003088   Section       62  ffixu.o(x$fpl$ffixu)
-    x$fpl$fmul                               0x080030c8   Section      258  fmul.o(x$fpl$fmul)
-    x$fpl$fnaninf                            0x080031ca   Section      140  fnaninf.o(x$fpl$fnaninf)
-    x$fpl$fretinf                            0x08003256   Section       10  fretinf.o(x$fpl$fretinf)
-    x$fpl$fsub                               0x08003260   Section      234  faddsub_clz.o(x$fpl$fsub)
-    _fsub1                                   0x0800326f   Thumb Code     0  faddsub_clz.o(x$fpl$fsub)
-    .constdata                               0x0800334a   Section       40  _printf_hex_int.o(.constdata)
-    x$fpl$usenofp                            0x0800334a   Section        0  usenofp.o(x$fpl$usenofp)
-    uc_hextab                                0x0800334a   Data          20  _printf_hex_int.o(.constdata)
-    lc_hextab                                0x0800335e   Data          20  _printf_hex_int.o(.constdata)
-    .constdata                               0x08003372   Section       17  __printf_flags_ss_wp.o(.constdata)
-    maptable                                 0x08003372   Data          17  __printf_flags_ss_wp.o(.constdata)
-    .conststring                             0x08003384   Section       36  shell.o(.conststring)
-    .conststring                             0x080033a8   Section      332  shell_config.o(.conststring)
+    i.TIM_ClearFlag                          0x08000e28   Section        0  stm32f10x_tim.o(i.TIM_ClearFlag)
+    i.TIM_ClearITPendingBit                  0x08000e2e   Section        0  stm32f10x_tim.o(i.TIM_ClearITPendingBit)
+    i.TIM_Cmd                                0x08000e34   Section        0  stm32f10x_tim.o(i.TIM_Cmd)
+    i.TIM_GetCounter                         0x08000e4c   Section        0  stm32f10x_tim.o(i.TIM_GetCounter)
+    i.TIM_GetFlagStatus                      0x08000e52   Section        0  stm32f10x_tim.o(i.TIM_GetFlagStatus)
+    i.TIM_GetITStatus                        0x08000e64   Section        0  stm32f10x_tim.o(i.TIM_GetITStatus)
+    i.TIM_ITConfig                           0x08000e86   Section        0  stm32f10x_tim.o(i.TIM_ITConfig)
+    i.TIM_SetAutoreload                      0x08000e98   Section        0  stm32f10x_tim.o(i.TIM_SetAutoreload)
+    i.TIM_SetCounter                         0x08000e9c   Section        0  stm32f10x_tim.o(i.TIM_SetCounter)
+    i.TIM_TimeBaseInit                       0x08000ea0   Section        0  stm32f10x_tim.o(i.TIM_TimeBaseInit)
+    i.Timer4_Init                            0x08000f44   Section        0  shell.o(i.Timer4_Init)
+    i.USART1_IRQHandler                      0x08000fa0   Section        0  usart1.o(i.USART1_IRQHandler)
+    i.USART_Cmd                              0x08001028   Section        0  stm32f10x_usart.o(i.USART_Cmd)
+    i.USART_GetITStatus                      0x08001040   Section        0  stm32f10x_usart.o(i.USART_GetITStatus)
+    i.USART_ITConfig                         0x08001094   Section        0  stm32f10x_usart.o(i.USART_ITConfig)
+    i.USART_Init                             0x080010e0   Section        0  stm32f10x_usart.o(i.USART_Init)
+    i.USART_ReceiveData                      0x080011b8   Section        0  stm32f10x_usart.o(i.USART_ReceiveData)
+    i.UsageFault_Handler                     0x080011c2   Section        0  stm32f10x_it.o(i.UsageFault_Handler)
+    i.X_Locate_Rle                           0x080011c8   Section        0  step_motor.o(i.X_Locate_Rle)
+    i.Y_Locate_Rle                           0x08001214   Section        0  step_motor.o(i.Y_Locate_Rle)
+    i.Z_Locate_Rle                           0x08001260   Section        0  step_motor.o(i.Z_Locate_Rle)
+    i._is_digit                              0x080012ac   Section        0  __printf_wp.o(i._is_digit)
+    i._sys_exit                              0x080012ba   Section        0  usart1.o(i._sys_exit)
+    i.delay_init                             0x080012c0   Section        0  delay.o(i.delay_init)
+    i.delay_ms                               0x08001304   Section        0  delay.o(i.delay_ms)
+    i.fputc                                  0x08001350   Section        0  usart1.o(i.fputc)
+    i.led_flicker                            0x0800136c   Section        0  led.o(i.led_flicker)
+    i.led_set                                0x080013a4   Section        0  led.o(i.led_set)
+    i.main                                   0x080013b8   Section        0  main.o(i.main)
+    i.motor_start                            0x080014a4   Section        0  step_motor.o(i.motor_start)
+    i.read_addr                              0x080014d0   Section        0  shell.o(i.read_addr)
+    i.step_calculate                         0x080014d8   Section        0  step_motor.o(i.step_calculate)
+    i.step_frv_motor                         0x08001500   Section        0  step_motor.o(i.step_frv_motor)
+    i.step_motor_STOP                        0x08001538   Section        0  step_motor.o(i.step_motor_STOP)
+    i.step_motor_init                        0x08001594   Section        0  step_motor.o(i.step_motor_init)
+    i.test_fun                               0x08001620   Section        0  main.o(i.test_fun)
+    i.time5_Init                             0x0800162c   Section        0  time.o(i.time5_Init)
+    i.time6_Init                             0x08001688   Section        0  time.o(i.time6_Init)
+    i.time7_Init                             0x080016e4   Section        0  time.o(i.time7_Init)
+    i.uart1_init                             0x08001740   Section        0  usart1.o(i.uart1_init)
+    i.usmart_cmd_rec                         0x080017e0   Section        0  shell.o(i.usmart_cmd_rec)
+    i.usmart_exe                             0x08001890   Section        0  shell.o(i.usmart_exe)
+    i.usmart_get_aparm                       0x08001b64   Section        0  shell_str.o(i.usmart_get_aparm)
+    i.usmart_get_cmdname                     0x08001c2c   Section        0  shell_str.o(i.usmart_get_cmdname)
+    i.usmart_get_fname                       0x08001c64   Section        0  shell_str.o(i.usmart_get_fname)
+    i.usmart_get_fparam                      0x08001e24   Section        0  shell_str.o(i.usmart_get_fparam)
+    i.usmart_get_parmpos                     0x08001f30   Section        0  shell_str.o(i.usmart_get_parmpos)
+    i.usmart_get_runtime                     0x08001f50   Section        0  shell.o(i.usmart_get_runtime)
+    i.usmart_init                            0x08001f94   Section        0  shell.o(i.usmart_init)
+    i.usmart_pow                             0x08001fbc   Section        0  shell_str.o(i.usmart_pow)
+    i.usmart_reset_runtime                   0x08001fd4   Section        0  shell.o(i.usmart_reset_runtime)
+    i.usmart_scan                            0x08002004   Section        0  shell.o(i.usmart_scan)
+    i.usmart_search_nextc                    0x080020c0   Section        0  shell_str.o(i.usmart_search_nextc)
+    i.usmart_str2num                         0x080020d6   Section        0  shell_str.o(i.usmart_str2num)
+    i.usmart_strcmp                          0x080021a0   Section        0  shell_str.o(i.usmart_strcmp)
+    i.usmart_strcopy                         0x080021c2   Section        0  shell_str.o(i.usmart_strcopy)
+    i.usmart_strlen                          0x080021d8   Section        0  shell_str.o(i.usmart_strlen)
+    i.usmart_sys_cmd_exe                     0x080021f0   Section        0  shell.o(i.usmart_sys_cmd_exe)
+    i.write_addr                             0x08002894   Section        0  shell.o(i.write_addr)
+    i.x_step_direction                       0x08002898   Section        0  step_motor.o(i.x_step_direction)
+    i.x_step_motor                           0x080028bc   Section        0  step_motor.o(i.x_step_motor)
+    i.x_step_motor_start                     0x080028f0   Section        0  step_motor.o(i.x_step_motor_start)
+    i.x_step_motor_stop                      0x08002904   Section        0  step_motor.o(i.x_step_motor_stop)
+    i.y_step_direction                       0x08002930   Section        0  step_motor.o(i.y_step_direction)
+    i.y_step_motor                           0x08002954   Section        0  step_motor.o(i.y_step_motor)
+    i.y_step_motor_start                     0x08002988   Section        0  step_motor.o(i.y_step_motor_start)
+    i.y_step_motor_stop                      0x0800299c   Section        0  step_motor.o(i.y_step_motor_stop)
+    i.z_step_direction                       0x080029c8   Section        0  step_motor.o(i.z_step_direction)
+    i.z_step_motor                           0x080029ec   Section        0  step_motor.o(i.z_step_motor)
+    i.z_step_motor_start                     0x08002a20   Section        0  step_motor.o(i.z_step_motor_start)
+    i.z_step_motor_stop                      0x08002a34   Section        0  step_motor.o(i.z_step_motor_stop)
+    x$fpl$ddiv                               0x08002a60   Section      688  ddiv.o(x$fpl$ddiv)
+    ddiv_entry                               0x08002a67   Thumb Code     0  ddiv.o(x$fpl$ddiv)
+    x$fpl$dfixu                              0x08002d10   Section       90  dfixu.o(x$fpl$dfixu)
+    x$fpl$dfltu                              0x08002d6a   Section       38  dflt_clz.o(x$fpl$dfltu)
+    x$fpl$dnaninf                            0x08002d90   Section      156  dnaninf.o(x$fpl$dnaninf)
+    x$fpl$dretinf                            0x08002e2c   Section       12  dretinf.o(x$fpl$dretinf)
+    x$fpl$fadd                               0x08002e38   Section      196  faddsub_clz.o(x$fpl$fadd)
+    _fadd1                                   0x08002e47   Thumb Code     0  faddsub_clz.o(x$fpl$fadd)
+    x$fpl$fdiv                               0x08002efc   Section      388  fdiv.o(x$fpl$fdiv)
+    _fdiv1                                   0x08002efd   Thumb Code     0  fdiv.o(x$fpl$fdiv)
+    x$fpl$ffixu                              0x08003080   Section       62  ffixu.o(x$fpl$ffixu)
+    x$fpl$fmul                               0x080030c0   Section      258  fmul.o(x$fpl$fmul)
+    x$fpl$fnaninf                            0x080031c2   Section      140  fnaninf.o(x$fpl$fnaninf)
+    x$fpl$fretinf                            0x0800324e   Section       10  fretinf.o(x$fpl$fretinf)
+    x$fpl$fsub                               0x08003258   Section      234  faddsub_clz.o(x$fpl$fsub)
+    _fsub1                                   0x08003267   Thumb Code     0  faddsub_clz.o(x$fpl$fsub)
+    .constdata                               0x08003342   Section       40  _printf_hex_int.o(.constdata)
+    x$fpl$usenofp                            0x08003342   Section        0  usenofp.o(x$fpl$usenofp)
+    uc_hextab                                0x08003342   Data          20  _printf_hex_int.o(.constdata)
+    lc_hextab                                0x08003356   Data          20  _printf_hex_int.o(.constdata)
+    .constdata                               0x0800336a   Section       17  __printf_flags_ss_wp.o(.constdata)
+    maptable                                 0x0800336a   Data          17  __printf_flags_ss_wp.o(.constdata)
+    .conststring                             0x0800337c   Section       36  shell.o(.conststring)
+    .conststring                             0x080033a0   Section      332  shell_config.o(.conststring)
     .data                                    0x20000000   Section       20  system_stm32f10x.o(.data)
     .data                                    0x20000014   Section       20  stm32f10x_rcc.o(.data)
     APBAHBPrescTable                         0x20000014   Data          16  stm32f10x_rcc.o(.data)
@@ -1099,14 +1098,14 @@ Image Symbol Table
     .data                                    0x20000032   Section        2  exti.o(.data)
     .data                                    0x20000034   Section       28  shell.o(.data)
     .data                                    0x20000050   Section      300  shell_config.o(.data)
-    .data                                    0x2000017c   Section       44  step_motor.o(.data)
-    .bss                                     0x200001a8   Section      200  usart1.o(.bss)
-    .bss                                     0x20000270   Section       96  libspace.o(.bss)
-    HEAP                                     0x200002d0   Section      512  startup_stm32f10x_hd.o(HEAP)
-    Heap_Mem                                 0x200002d0   Data         512  startup_stm32f10x_hd.o(HEAP)
-    STACK                                    0x200004d0   Section     1024  startup_stm32f10x_hd.o(STACK)
-    Stack_Mem                                0x200004d0   Data        1024  startup_stm32f10x_hd.o(STACK)
-    __initial_sp                             0x200008d0   Data           0  startup_stm32f10x_hd.o(STACK)
+    .data                                    0x2000017c   Section       52  step_motor.o(.data)
+    .bss                                     0x200001b0   Section      200  usart1.o(.bss)
+    .bss                                     0x20000278   Section       96  libspace.o(.bss)
+    HEAP                                     0x200002d8   Section      512  startup_stm32f10x_hd.o(HEAP)
+    Heap_Mem                                 0x200002d8   Data         512  startup_stm32f10x_hd.o(HEAP)
+    STACK                                    0x200004d8   Section     1024  startup_stm32f10x_hd.o(STACK)
+    Stack_Mem                                0x200004d8   Data        1024  startup_stm32f10x_hd.o(STACK)
+    __initial_sp                             0x200008d8   Data           0  startup_stm32f10x_hd.o(STACK)
 
     Global Symbols
 
@@ -1317,101 +1316,101 @@ Image Symbol Table
     TIM4_IRQHandler                          0x08000ce1   Thumb Code    46  shell.o(i.TIM4_IRQHandler)
     TIM5_IRQHandler                          0x08000d19   Thumb Code    70  time.o(i.TIM5_IRQHandler)
     TIM6_IRQHandler                          0x08000d71   Thumb Code    70  time.o(i.TIM6_IRQHandler)
-    TIM7_IRQHandler                          0x08000dc9   Thumb Code    70  time.o(i.TIM7_IRQHandler)
-    TIM_ClearFlag                            0x08000e21   Thumb Code     6  stm32f10x_tim.o(i.TIM_ClearFlag)
-    TIM_ClearITPendingBit                    0x08000e27   Thumb Code     6  stm32f10x_tim.o(i.TIM_ClearITPendingBit)
-    TIM_Cmd                                  0x08000e2d   Thumb Code    24  stm32f10x_tim.o(i.TIM_Cmd)
-    TIM_GetCounter                           0x08000e45   Thumb Code     6  stm32f10x_tim.o(i.TIM_GetCounter)
-    TIM_GetFlagStatus                        0x08000e4b   Thumb Code    18  stm32f10x_tim.o(i.TIM_GetFlagStatus)
-    TIM_GetITStatus                          0x08000e5d   Thumb Code    34  stm32f10x_tim.o(i.TIM_GetITStatus)
-    TIM_ITConfig                             0x08000e7f   Thumb Code    18  stm32f10x_tim.o(i.TIM_ITConfig)
-    TIM_SetAutoreload                        0x08000e91   Thumb Code     4  stm32f10x_tim.o(i.TIM_SetAutoreload)
-    TIM_SetCounter                           0x08000e95   Thumb Code     4  stm32f10x_tim.o(i.TIM_SetCounter)
-    TIM_TimeBaseInit                         0x08000e99   Thumb Code   122  stm32f10x_tim.o(i.TIM_TimeBaseInit)
-    Timer4_Init                              0x08000f3d   Thumb Code    88  shell.o(i.Timer4_Init)
-    USART1_IRQHandler                        0x08000f99   Thumb Code   122  usart1.o(i.USART1_IRQHandler)
-    USART_Cmd                                0x08001021   Thumb Code    24  stm32f10x_usart.o(i.USART_Cmd)
-    USART_GetITStatus                        0x08001039   Thumb Code    84  stm32f10x_usart.o(i.USART_GetITStatus)
-    USART_ITConfig                           0x0800108d   Thumb Code    74  stm32f10x_usart.o(i.USART_ITConfig)
-    USART_Init                               0x080010d9   Thumb Code   210  stm32f10x_usart.o(i.USART_Init)
-    USART_ReceiveData                        0x080011b1   Thumb Code    10  stm32f10x_usart.o(i.USART_ReceiveData)
-    UsageFault_Handler                       0x080011bb   Thumb Code     4  stm32f10x_it.o(i.UsageFault_Handler)
-    X_Locate_Rle                             0x080011c1   Thumb Code    68  step_motor.o(i.X_Locate_Rle)
-    Y_Locate_Rle                             0x0800120d   Thumb Code    68  step_motor.o(i.Y_Locate_Rle)
-    Z_Locate_Rle                             0x08001259   Thumb Code    68  step_motor.o(i.Z_Locate_Rle)
-    _is_digit                                0x080012a5   Thumb Code    14  __printf_wp.o(i._is_digit)
-    _sys_exit                                0x080012b3   Thumb Code     6  usart1.o(i._sys_exit)
-    delay_init                               0x080012b9   Thumb Code    50  delay.o(i.delay_init)
-    delay_ms                                 0x080012fd   Thumb Code    72  delay.o(i.delay_ms)
-    fputc                                    0x08001349   Thumb Code    24  usart1.o(i.fputc)
-    led_flicker                              0x08001365   Thumb Code    48  led.o(i.led_flicker)
-    led_set                                  0x0800139d   Thumb Code    12  led.o(i.led_set)
-    main                                     0x080013b1   Thumb Code   222  main.o(i.main)
-    motor_start                              0x080014bd   Thumb Code    44  step_motor.o(i.motor_start)
-    read_addr                                0x080014e9   Thumb Code     6  shell.o(i.read_addr)
-    step_calculate                           0x080014f1   Thumb Code    32  step_motor.o(i.step_calculate)
-    step_frv_motor                           0x08001519   Thumb Code    52  step_motor.o(i.step_frv_motor)
-    step_motor_STOP                          0x08001551   Thumb Code    60  step_motor.o(i.step_motor_STOP)
-    step_motor_init                          0x080015ad   Thumb Code   108  step_motor.o(i.step_motor_init)
-    test_fun                                 0x08001629   Thumb Code    12  main.o(i.test_fun)
-    time5_Init                               0x08001635   Thumb Code    86  time.o(i.time5_Init)
-    time6_Init                               0x08001691   Thumb Code    86  time.o(i.time6_Init)
-    time7_Init                               0x080016ed   Thumb Code    86  time.o(i.time7_Init)
-    uart1_init                               0x08001749   Thumb Code   152  usart1.o(i.uart1_init)
-    usmart_cmd_rec                           0x080017e9   Thumb Code   170  shell.o(i.usmart_cmd_rec)
-    usmart_exe                               0x08001899   Thumb Code   632  shell.o(i.usmart_exe)
-    usmart_get_aparm                         0x08001b6d   Thumb Code   200  shell_str.o(i.usmart_get_aparm)
-    usmart_get_cmdname                       0x08001c35   Thumb Code    54  shell_str.o(i.usmart_get_cmdname)
-    usmart_get_fname                         0x08001c6d   Thumb Code   440  shell_str.o(i.usmart_get_fname)
-    usmart_get_fparam                        0x08001e2d   Thumb Code   262  shell_str.o(i.usmart_get_fparam)
-    usmart_get_parmpos                       0x08001f39   Thumb Code    26  shell_str.o(i.usmart_get_parmpos)
-    usmart_get_runtime                       0x08001f59   Thumb Code    60  shell.o(i.usmart_get_runtime)
-    usmart_init                              0x08001f9d   Thumb Code    36  shell.o(i.usmart_init)
-    usmart_pow                               0x08001fc5   Thumb Code    22  shell_str.o(i.usmart_pow)
-    usmart_reset_runtime                     0x08001fdd   Thumb Code    38  shell.o(i.usmart_reset_runtime)
-    usmart_scan                              0x0800200d   Thumb Code   120  shell.o(i.usmart_scan)
-    usmart_search_nextc                      0x080020c9   Thumb Code    22  shell_str.o(i.usmart_search_nextc)
-    usmart_str2num                           0x080020df   Thumb Code   202  shell_str.o(i.usmart_str2num)
-    usmart_strcmp                            0x080021a9   Thumb Code    34  shell_str.o(i.usmart_strcmp)
-    usmart_strcopy                           0x080021cb   Thumb Code    22  shell_str.o(i.usmart_strcopy)
-    usmart_strlen                            0x080021e1   Thumb Code    24  shell_str.o(i.usmart_strlen)
-    usmart_sys_cmd_exe                       0x080021f9   Thumb Code  1574  shell.o(i.usmart_sys_cmd_exe)
-    write_addr                               0x0800289d   Thumb Code     4  shell.o(i.write_addr)
-    x_step_direction                         0x080028a1   Thumb Code    30  step_motor.o(i.x_step_direction)
-    x_step_motor                             0x080028c5   Thumb Code    42  step_motor.o(i.x_step_motor)
-    x_step_motor_start                       0x080028f9   Thumb Code    16  step_motor.o(i.x_step_motor_start)
-    x_step_motor_stop                        0x0800290d   Thumb Code    28  step_motor.o(i.x_step_motor_stop)
-    y_step_direction                         0x08002939   Thumb Code    30  step_motor.o(i.y_step_direction)
-    y_step_motor                             0x0800295d   Thumb Code    42  step_motor.o(i.y_step_motor)
-    y_step_motor_start                       0x08002991   Thumb Code    16  step_motor.o(i.y_step_motor_start)
-    y_step_motor_stop                        0x080029a5   Thumb Code    28  step_motor.o(i.y_step_motor_stop)
-    z_step_direction                         0x080029d1   Thumb Code    32  step_motor.o(i.z_step_direction)
-    z_step_motor                             0x080029f5   Thumb Code    42  step_motor.o(i.z_step_motor)
-    z_step_motor_start                       0x08002a29   Thumb Code    16  step_motor.o(i.z_step_motor_start)
-    z_step_motor_stop                        0x08002a3d   Thumb Code    28  step_motor.o(i.z_step_motor_stop)
-    __aeabi_ddiv                             0x08002a69   Thumb Code     0  ddiv.o(x$fpl$ddiv)
-    _ddiv                                    0x08002a69   Thumb Code   552  ddiv.o(x$fpl$ddiv)
-    __aeabi_d2uiz                            0x08002d19   Thumb Code     0  dfixu.o(x$fpl$dfixu)
-    _dfixu                                   0x08002d19   Thumb Code    90  dfixu.o(x$fpl$dfixu)
-    __aeabi_ui2d                             0x08002d73   Thumb Code     0  dflt_clz.o(x$fpl$dfltu)
-    _dfltu                                   0x08002d73   Thumb Code    38  dflt_clz.o(x$fpl$dfltu)
-    __fpl_dnaninf                            0x08002d99   Thumb Code   156  dnaninf.o(x$fpl$dnaninf)
-    __fpl_dretinf                            0x08002e35   Thumb Code    12  dretinf.o(x$fpl$dretinf)
-    __aeabi_fadd                             0x08002e41   Thumb Code     0  faddsub_clz.o(x$fpl$fadd)
-    _fadd                                    0x08002e41   Thumb Code   196  faddsub_clz.o(x$fpl$fadd)
-    __aeabi_fdiv                             0x08002f05   Thumb Code     0  fdiv.o(x$fpl$fdiv)
-    _fdiv                                    0x08002f05   Thumb Code   384  fdiv.o(x$fpl$fdiv)
-    __aeabi_f2uiz                            0x08003089   Thumb Code     0  ffixu.o(x$fpl$ffixu)
-    _ffixu                                   0x08003089   Thumb Code    62  ffixu.o(x$fpl$ffixu)
-    __aeabi_fmul                             0x080030c9   Thumb Code     0  fmul.o(x$fpl$fmul)
-    _fmul                                    0x080030c9   Thumb Code   258  fmul.o(x$fpl$fmul)
-    __fpl_fnaninf                            0x080031cb   Thumb Code   140  fnaninf.o(x$fpl$fnaninf)
-    __fpl_fretinf                            0x08003257   Thumb Code    10  fretinf.o(x$fpl$fretinf)
-    __aeabi_fsub                             0x08003261   Thumb Code     0  faddsub_clz.o(x$fpl$fsub)
-    _fsub                                    0x08003261   Thumb Code   234  faddsub_clz.o(x$fpl$fsub)
-    __I$use$fp                               0x0800334a   Number         0  usenofp.o(x$fpl$usenofp)
-    Region$$Table$$Base                      0x080034f4   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08003514   Number         0  anon$$obj.o(Region$$Table)
+    TIM7_IRQHandler                          0x08000dc9   Thumb Code    80  time.o(i.TIM7_IRQHandler)
+    TIM_ClearFlag                            0x08000e29   Thumb Code     6  stm32f10x_tim.o(i.TIM_ClearFlag)
+    TIM_ClearITPendingBit                    0x08000e2f   Thumb Code     6  stm32f10x_tim.o(i.TIM_ClearITPendingBit)
+    TIM_Cmd                                  0x08000e35   Thumb Code    24  stm32f10x_tim.o(i.TIM_Cmd)
+    TIM_GetCounter                           0x08000e4d   Thumb Code     6  stm32f10x_tim.o(i.TIM_GetCounter)
+    TIM_GetFlagStatus                        0x08000e53   Thumb Code    18  stm32f10x_tim.o(i.TIM_GetFlagStatus)
+    TIM_GetITStatus                          0x08000e65   Thumb Code    34  stm32f10x_tim.o(i.TIM_GetITStatus)
+    TIM_ITConfig                             0x08000e87   Thumb Code    18  stm32f10x_tim.o(i.TIM_ITConfig)
+    TIM_SetAutoreload                        0x08000e99   Thumb Code     4  stm32f10x_tim.o(i.TIM_SetAutoreload)
+    TIM_SetCounter                           0x08000e9d   Thumb Code     4  stm32f10x_tim.o(i.TIM_SetCounter)
+    TIM_TimeBaseInit                         0x08000ea1   Thumb Code   122  stm32f10x_tim.o(i.TIM_TimeBaseInit)
+    Timer4_Init                              0x08000f45   Thumb Code    88  shell.o(i.Timer4_Init)
+    USART1_IRQHandler                        0x08000fa1   Thumb Code   122  usart1.o(i.USART1_IRQHandler)
+    USART_Cmd                                0x08001029   Thumb Code    24  stm32f10x_usart.o(i.USART_Cmd)
+    USART_GetITStatus                        0x08001041   Thumb Code    84  stm32f10x_usart.o(i.USART_GetITStatus)
+    USART_ITConfig                           0x08001095   Thumb Code    74  stm32f10x_usart.o(i.USART_ITConfig)
+    USART_Init                               0x080010e1   Thumb Code   210  stm32f10x_usart.o(i.USART_Init)
+    USART_ReceiveData                        0x080011b9   Thumb Code    10  stm32f10x_usart.o(i.USART_ReceiveData)
+    UsageFault_Handler                       0x080011c3   Thumb Code     4  stm32f10x_it.o(i.UsageFault_Handler)
+    X_Locate_Rle                             0x080011c9   Thumb Code    68  step_motor.o(i.X_Locate_Rle)
+    Y_Locate_Rle                             0x08001215   Thumb Code    68  step_motor.o(i.Y_Locate_Rle)
+    Z_Locate_Rle                             0x08001261   Thumb Code    68  step_motor.o(i.Z_Locate_Rle)
+    _is_digit                                0x080012ad   Thumb Code    14  __printf_wp.o(i._is_digit)
+    _sys_exit                                0x080012bb   Thumb Code     6  usart1.o(i._sys_exit)
+    delay_init                               0x080012c1   Thumb Code    50  delay.o(i.delay_init)
+    delay_ms                                 0x08001305   Thumb Code    72  delay.o(i.delay_ms)
+    fputc                                    0x08001351   Thumb Code    24  usart1.o(i.fputc)
+    led_flicker                              0x0800136d   Thumb Code    48  led.o(i.led_flicker)
+    led_set                                  0x080013a5   Thumb Code    12  led.o(i.led_set)
+    main                                     0x080013b9   Thumb Code   208  main.o(i.main)
+    motor_start                              0x080014a5   Thumb Code    44  step_motor.o(i.motor_start)
+    read_addr                                0x080014d1   Thumb Code     6  shell.o(i.read_addr)
+    step_calculate                           0x080014d9   Thumb Code    32  step_motor.o(i.step_calculate)
+    step_frv_motor                           0x08001501   Thumb Code    52  step_motor.o(i.step_frv_motor)
+    step_motor_STOP                          0x08001539   Thumb Code    60  step_motor.o(i.step_motor_STOP)
+    step_motor_init                          0x08001595   Thumb Code   120  step_motor.o(i.step_motor_init)
+    test_fun                                 0x08001621   Thumb Code    12  main.o(i.test_fun)
+    time5_Init                               0x0800162d   Thumb Code    86  time.o(i.time5_Init)
+    time6_Init                               0x08001689   Thumb Code    86  time.o(i.time6_Init)
+    time7_Init                               0x080016e5   Thumb Code    86  time.o(i.time7_Init)
+    uart1_init                               0x08001741   Thumb Code   152  usart1.o(i.uart1_init)
+    usmart_cmd_rec                           0x080017e1   Thumb Code   170  shell.o(i.usmart_cmd_rec)
+    usmart_exe                               0x08001891   Thumb Code   632  shell.o(i.usmart_exe)
+    usmart_get_aparm                         0x08001b65   Thumb Code   200  shell_str.o(i.usmart_get_aparm)
+    usmart_get_cmdname                       0x08001c2d   Thumb Code    54  shell_str.o(i.usmart_get_cmdname)
+    usmart_get_fname                         0x08001c65   Thumb Code   440  shell_str.o(i.usmart_get_fname)
+    usmart_get_fparam                        0x08001e25   Thumb Code   262  shell_str.o(i.usmart_get_fparam)
+    usmart_get_parmpos                       0x08001f31   Thumb Code    26  shell_str.o(i.usmart_get_parmpos)
+    usmart_get_runtime                       0x08001f51   Thumb Code    60  shell.o(i.usmart_get_runtime)
+    usmart_init                              0x08001f95   Thumb Code    36  shell.o(i.usmart_init)
+    usmart_pow                               0x08001fbd   Thumb Code    22  shell_str.o(i.usmart_pow)
+    usmart_reset_runtime                     0x08001fd5   Thumb Code    38  shell.o(i.usmart_reset_runtime)
+    usmart_scan                              0x08002005   Thumb Code   120  shell.o(i.usmart_scan)
+    usmart_search_nextc                      0x080020c1   Thumb Code    22  shell_str.o(i.usmart_search_nextc)
+    usmart_str2num                           0x080020d7   Thumb Code   202  shell_str.o(i.usmart_str2num)
+    usmart_strcmp                            0x080021a1   Thumb Code    34  shell_str.o(i.usmart_strcmp)
+    usmart_strcopy                           0x080021c3   Thumb Code    22  shell_str.o(i.usmart_strcopy)
+    usmart_strlen                            0x080021d9   Thumb Code    24  shell_str.o(i.usmart_strlen)
+    usmart_sys_cmd_exe                       0x080021f1   Thumb Code  1574  shell.o(i.usmart_sys_cmd_exe)
+    write_addr                               0x08002895   Thumb Code     4  shell.o(i.write_addr)
+    x_step_direction                         0x08002899   Thumb Code    30  step_motor.o(i.x_step_direction)
+    x_step_motor                             0x080028bd   Thumb Code    42  step_motor.o(i.x_step_motor)
+    x_step_motor_start                       0x080028f1   Thumb Code    16  step_motor.o(i.x_step_motor_start)
+    x_step_motor_stop                        0x08002905   Thumb Code    28  step_motor.o(i.x_step_motor_stop)
+    y_step_direction                         0x08002931   Thumb Code    30  step_motor.o(i.y_step_direction)
+    y_step_motor                             0x08002955   Thumb Code    42  step_motor.o(i.y_step_motor)
+    y_step_motor_start                       0x08002989   Thumb Code    16  step_motor.o(i.y_step_motor_start)
+    y_step_motor_stop                        0x0800299d   Thumb Code    28  step_motor.o(i.y_step_motor_stop)
+    z_step_direction                         0x080029c9   Thumb Code    32  step_motor.o(i.z_step_direction)
+    z_step_motor                             0x080029ed   Thumb Code    42  step_motor.o(i.z_step_motor)
+    z_step_motor_start                       0x08002a21   Thumb Code    16  step_motor.o(i.z_step_motor_start)
+    z_step_motor_stop                        0x08002a35   Thumb Code    28  step_motor.o(i.z_step_motor_stop)
+    __aeabi_ddiv                             0x08002a61   Thumb Code     0  ddiv.o(x$fpl$ddiv)
+    _ddiv                                    0x08002a61   Thumb Code   552  ddiv.o(x$fpl$ddiv)
+    __aeabi_d2uiz                            0x08002d11   Thumb Code     0  dfixu.o(x$fpl$dfixu)
+    _dfixu                                   0x08002d11   Thumb Code    90  dfixu.o(x$fpl$dfixu)
+    __aeabi_ui2d                             0x08002d6b   Thumb Code     0  dflt_clz.o(x$fpl$dfltu)
+    _dfltu                                   0x08002d6b   Thumb Code    38  dflt_clz.o(x$fpl$dfltu)
+    __fpl_dnaninf                            0x08002d91   Thumb Code   156  dnaninf.o(x$fpl$dnaninf)
+    __fpl_dretinf                            0x08002e2d   Thumb Code    12  dretinf.o(x$fpl$dretinf)
+    __aeabi_fadd                             0x08002e39   Thumb Code     0  faddsub_clz.o(x$fpl$fadd)
+    _fadd                                    0x08002e39   Thumb Code   196  faddsub_clz.o(x$fpl$fadd)
+    __aeabi_fdiv                             0x08002efd   Thumb Code     0  fdiv.o(x$fpl$fdiv)
+    _fdiv                                    0x08002efd   Thumb Code   384  fdiv.o(x$fpl$fdiv)
+    __aeabi_f2uiz                            0x08003081   Thumb Code     0  ffixu.o(x$fpl$ffixu)
+    _ffixu                                   0x08003081   Thumb Code    62  ffixu.o(x$fpl$ffixu)
+    __aeabi_fmul                             0x080030c1   Thumb Code     0  fmul.o(x$fpl$fmul)
+    _fmul                                    0x080030c1   Thumb Code   258  fmul.o(x$fpl$fmul)
+    __fpl_fnaninf                            0x080031c3   Thumb Code   140  fnaninf.o(x$fpl$fnaninf)
+    __fpl_fretinf                            0x0800324f   Thumb Code    10  fretinf.o(x$fpl$fretinf)
+    __aeabi_fsub                             0x08003259   Thumb Code     0  faddsub_clz.o(x$fpl$fsub)
+    _fsub                                    0x08003259   Thumb Code   234  faddsub_clz.o(x$fpl$fsub)
+    __I$use$fp                               0x08003342   Number         0  usenofp.o(x$fpl$usenofp)
+    Region$$Table$$Base                      0x080034ec   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x0800350c   Number         0  anon$$obj.o(Region$$Table)
     SystemCoreClock                          0x20000000   Data           4  system_stm32f10x.o(.data)
     AHBPrescTable                            0x20000004   Data          16  system_stm32f10x.o(.data)
     __stdout                                 0x2000002c   Data           4  usart1.o(.data)
@@ -1420,20 +1419,22 @@ Image Symbol Table
     sys_cmd_tab                              0x20000034   Data          28  shell.o(.data)
     usmart_nametab                           0x20000050   Data          56  shell_config.o(.data)
     usmart_dev                               0x20000088   Data         244  shell_config.o(.data)
-    double_cycle                             0x2000017c   Data           4  step_motor.o(.data)
-    x_Pluse                                  0x20000180   Data           4  step_motor.o(.data)
-    y_Pluse                                  0x20000184   Data           4  step_motor.o(.data)
-    z_Pluse                                  0x20000188   Data           4  step_motor.o(.data)
-    x_need_Pluse                             0x2000018c   Data           4  step_motor.o(.data)
-    y_need_Pluse                             0x20000190   Data           4  step_motor.o(.data)
-    z_need_Pluse                             0x20000194   Data           4  step_motor.o(.data)
-    frequency                                0x20000198   Data           4  step_motor.o(.data)
-    x_sum_Pluse                              0x2000019c   Data           4  step_motor.o(.data)
-    y_sum_Pluse                              0x200001a0   Data           4  step_motor.o(.data)
-    z_sum_Pluse                              0x200001a4   Data           4  step_motor.o(.data)
-    USART_RX_BUF                             0x200001a8   Data         200  usart1.o(.bss)
-    __libspace_start                         0x20000270   Data          96  libspace.o(.bss)
-    __temporary_stack_top$libspace           0x200002d0   Data           0  libspace.o(.bss)
+    x_double_cycle                           0x2000017c   Data           4  step_motor.o(.data)
+    y_double_cycle                           0x20000180   Data           1  step_motor.o(.data)
+    z_double_cycle                           0x20000184   Data           4  step_motor.o(.data)
+    x_Pluse                                  0x20000188   Data           4  step_motor.o(.data)
+    y_Pluse                                  0x2000018c   Data           4  step_motor.o(.data)
+    z_Pluse                                  0x20000190   Data           4  step_motor.o(.data)
+    x_need_Pluse                             0x20000194   Data           4  step_motor.o(.data)
+    y_need_Pluse                             0x20000198   Data           4  step_motor.o(.data)
+    z_need_Pluse                             0x2000019c   Data           4  step_motor.o(.data)
+    frequency                                0x200001a0   Data           4  step_motor.o(.data)
+    x_sum_Pluse                              0x200001a4   Data           4  step_motor.o(.data)
+    y_sum_Pluse                              0x200001a8   Data           4  step_motor.o(.data)
+    z_sum_Pluse                              0x200001ac   Data           4  step_motor.o(.data)
+    USART_RX_BUF                             0x200001b0   Data         200  usart1.o(.bss)
+    __libspace_start                         0x20000278   Data          96  libspace.o(.bss)
+    __temporary_stack_top$libspace           0x200002d8   Data           0  libspace.o(.bss)
 
 
 
@@ -1443,9 +1444,9 @@ Memory Map of the image
 
   Image Entry point : 0x08000131
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000036bc, Max: 0x00080000, ABSOLUTE, COMPRESSED[0x00003588])
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000036bc, Max: 0x00080000, ABSOLUTE, COMPRESSED[0x00003584])
 
-    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x00003514, Max: 0x00080000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x0000350c, Max: 0x00080000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1556,106 +1557,106 @@ Memory Map of the image
     0x08000ce0   0x00000038   Code   RO         1796    i.TIM4_IRQHandler   shell.o
     0x08000d18   0x00000058   Code   RO         1661    i.TIM5_IRQHandler   time.o
     0x08000d70   0x00000058   Code   RO         1662    i.TIM6_IRQHandler   time.o
-    0x08000dc8   0x00000058   Code   RO         1663    i.TIM7_IRQHandler   time.o
-    0x08000e20   0x00000006   Code   RO          800    i.TIM_ClearFlag     stm32f10x_tim.o
-    0x08000e26   0x00000006   Code   RO          801    i.TIM_ClearITPendingBit  stm32f10x_tim.o
-    0x08000e2c   0x00000018   Code   RO          806    i.TIM_Cmd           stm32f10x_tim.o
-    0x08000e44   0x00000006   Code   RO          825    i.TIM_GetCounter    stm32f10x_tim.o
-    0x08000e4a   0x00000012   Code   RO          826    i.TIM_GetFlagStatus  stm32f10x_tim.o
-    0x08000e5c   0x00000022   Code   RO          827    i.TIM_GetITStatus   stm32f10x_tim.o
-    0x08000e7e   0x00000012   Code   RO          831    i.TIM_ITConfig      stm32f10x_tim.o
-    0x08000e90   0x00000004   Code   RO          865    i.TIM_SetAutoreload  stm32f10x_tim.o
-    0x08000e94   0x00000004   Code   RO          871    i.TIM_SetCounter    stm32f10x_tim.o
-    0x08000e98   0x000000a4   Code   RO          877    i.TIM_TimeBaseInit  stm32f10x_tim.o
-    0x08000f3c   0x0000005c   Code   RO         1797    i.Timer4_Init       shell.o
-    0x08000f98   0x00000088   Code   RO         1554    i.USART1_IRQHandler  usart1.o
-    0x08001020   0x00000018   Code   RO          614    i.USART_Cmd         stm32f10x_usart.o
-    0x08001038   0x00000054   Code   RO          618    i.USART_GetITStatus  stm32f10x_usart.o
-    0x0800108c   0x0000004a   Code   RO          620    i.USART_ITConfig    stm32f10x_usart.o
-    0x080010d6   0x00000002   PAD
-    0x080010d8   0x000000d8   Code   RO          621    i.USART_Init        stm32f10x_usart.o
-    0x080011b0   0x0000000a   Code   RO          628    i.USART_ReceiveData  stm32f10x_usart.o
-    0x080011ba   0x00000004   Code   RO          163    i.UsageFault_Handler  stm32f10x_it.o
-    0x080011be   0x00000002   PAD
-    0x080011c0   0x0000004c   Code   RO         1966    i.X_Locate_Rle      step_motor.o
-    0x0800120c   0x0000004c   Code   RO         1967    i.Y_Locate_Rle      step_motor.o
-    0x08001258   0x0000004c   Code   RO         1968    i.Z_Locate_Rle      step_motor.o
-    0x080012a4   0x0000000e   Code   RO         2235    i._is_digit         c_w.l(__printf_wp.o)
-    0x080012b2   0x00000006   Code   RO         1555    i._sys_exit         usart1.o
-    0x080012b8   0x00000044   Code   RO         1500    i.delay_init        delay.o
-    0x080012fc   0x0000004c   Code   RO         1501    i.delay_ms          delay.o
-    0x08001348   0x0000001c   Code   RO         1556    i.fputc             usart1.o
-    0x08001364   0x00000038   Code   RO         1596    i.led_flicker       led.o
-    0x0800139c   0x00000014   Code   RO         1597    i.led_set           led.o
-    0x080013b0   0x0000010c   Code   RO            1    i.main              main.o
-    0x080014bc   0x0000002c   Code   RO         1969    i.motor_start       step_motor.o
-    0x080014e8   0x00000006   Code   RO         1798    i.read_addr         shell.o
-    0x080014ee   0x00000002   PAD
-    0x080014f0   0x00000028   Code   RO         1970    i.step_calculate    step_motor.o
-    0x08001518   0x00000038   Code   RO         1973    i.step_frv_motor    step_motor.o
-    0x08001550   0x0000005c   Code   RO         1974    i.step_motor_STOP   step_motor.o
-    0x080015ac   0x0000007c   Code   RO         1975    i.step_motor_init   step_motor.o
-    0x08001628   0x0000000c   Code   RO            2    i.test_fun          main.o
-    0x08001634   0x0000005c   Code   RO         1664    i.time5_Init        time.o
-    0x08001690   0x0000005c   Code   RO         1665    i.time6_Init        time.o
-    0x080016ec   0x0000005c   Code   RO         1666    i.time7_Init        time.o
-    0x08001748   0x000000a0   Code   RO         1557    i.uart1_init        usart1.o
-    0x080017e8   0x000000b0   Code   RO         1799    i.usmart_cmd_rec    shell.o
-    0x08001898   0x000002d4   Code   RO         1800    i.usmart_exe        shell.o
-    0x08001b6c   0x000000c8   Code   RO         1893    i.usmart_get_aparm  shell_str.o
-    0x08001c34   0x00000036   Code   RO         1894    i.usmart_get_cmdname  shell_str.o
-    0x08001c6a   0x00000002   PAD
-    0x08001c6c   0x000001c0   Code   RO         1895    i.usmart_get_fname  shell_str.o
-    0x08001e2c   0x0000010c   Code   RO         1896    i.usmart_get_fparam  shell_str.o
-    0x08001f38   0x00000020   Code   RO         1897    i.usmart_get_parmpos  shell_str.o
-    0x08001f58   0x00000044   Code   RO         1801    i.usmart_get_runtime  shell.o
-    0x08001f9c   0x00000028   Code   RO         1802    i.usmart_init       shell.o
-    0x08001fc4   0x00000016   Code   RO         1898    i.usmart_pow        shell_str.o
-    0x08001fda   0x00000002   PAD
-    0x08001fdc   0x00000030   Code   RO         1803    i.usmart_reset_runtime  shell.o
-    0x0800200c   0x000000bc   Code   RO         1804    i.usmart_scan       shell.o
-    0x080020c8   0x00000016   Code   RO         1899    i.usmart_search_nextc  shell_str.o
-    0x080020de   0x000000ca   Code   RO         1900    i.usmart_str2num    shell_str.o
-    0x080021a8   0x00000022   Code   RO         1901    i.usmart_strcmp     shell_str.o
-    0x080021ca   0x00000016   Code   RO         1902    i.usmart_strcopy    shell_str.o
-    0x080021e0   0x00000018   Code   RO         1903    i.usmart_strlen     shell_str.o
-    0x080021f8   0x000006a4   Code   RO         1805    i.usmart_sys_cmd_exe  shell.o
-    0x0800289c   0x00000004   Code   RO         1806    i.write_addr        shell.o
-    0x080028a0   0x00000024   Code   RO         1977    i.x_step_direction  step_motor.o
-    0x080028c4   0x00000034   Code   RO         1978    i.x_step_motor      step_motor.o
-    0x080028f8   0x00000014   Code   RO         1979    i.x_step_motor_start  step_motor.o
-    0x0800290c   0x0000002c   Code   RO         1980    i.x_step_motor_stop  step_motor.o
-    0x08002938   0x00000024   Code   RO         1983    i.y_step_direction  step_motor.o
-    0x0800295c   0x00000034   Code   RO         1984    i.y_step_motor      step_motor.o
-    0x08002990   0x00000014   Code   RO         1985    i.y_step_motor_start  step_motor.o
-    0x080029a4   0x0000002c   Code   RO         1986    i.y_step_motor_stop  step_motor.o
-    0x080029d0   0x00000024   Code   RO         1987    i.z_step_direction  step_motor.o
-    0x080029f4   0x00000034   Code   RO         1988    i.z_step_motor      step_motor.o
-    0x08002a28   0x00000014   Code   RO         1989    i.z_step_motor_start  step_motor.o
-    0x08002a3c   0x0000002c   Code   RO         1990    i.z_step_motor_stop  step_motor.o
-    0x08002a68   0x000002b0   Code   RO         2256    x$fpl$ddiv          fz_ws.l(ddiv.o)
-    0x08002d18   0x0000005a   Code   RO         2259    x$fpl$dfixu         fz_ws.l(dfixu.o)
-    0x08002d72   0x00000026   Code   RO         2263    x$fpl$dfltu         fz_ws.l(dflt_clz.o)
-    0x08002d98   0x0000009c   Code   RO         2297    x$fpl$dnaninf       fz_ws.l(dnaninf.o)
-    0x08002e34   0x0000000c   Code   RO         2299    x$fpl$dretinf       fz_ws.l(dretinf.o)
-    0x08002e40   0x000000c4   Code   RO         2271    x$fpl$fadd          fz_ws.l(faddsub_clz.o)
-    0x08002f04   0x00000184   Code   RO         2278    x$fpl$fdiv          fz_ws.l(fdiv.o)
-    0x08003088   0x0000003e   Code   RO         2281    x$fpl$ffixu         fz_ws.l(ffixu.o)
-    0x080030c6   0x00000002   PAD
-    0x080030c8   0x00000102   Code   RO         2285    x$fpl$fmul          fz_ws.l(fmul.o)
-    0x080031ca   0x0000008c   Code   RO         2301    x$fpl$fnaninf       fz_ws.l(fnaninf.o)
-    0x08003256   0x0000000a   Code   RO         2303    x$fpl$fretinf       fz_ws.l(fretinf.o)
-    0x08003260   0x000000ea   Code   RO         2273    x$fpl$fsub          fz_ws.l(faddsub_clz.o)
-    0x0800334a   0x00000000   Code   RO         2305    x$fpl$usenofp       fz_ws.l(usenofp.o)
-    0x0800334a   0x00000028   Data   RO         2208    .constdata          c_w.l(_printf_hex_int.o)
-    0x08003372   0x00000011   Data   RO         2243    .constdata          c_w.l(__printf_flags_ss_wp.o)
-    0x08003383   0x00000001   PAD
-    0x08003384   0x00000024   Data   RO         1807    .conststring        shell.o
-    0x080033a8   0x0000014c   Data   RO         1880    .conststring        shell_config.o
-    0x080034f4   0x00000020   Data   RO         2461    Region$$Table       anon$$obj.o
+    0x08000dc8   0x00000060   Code   RO         1663    i.TIM7_IRQHandler   time.o
+    0x08000e28   0x00000006   Code   RO          800    i.TIM_ClearFlag     stm32f10x_tim.o
+    0x08000e2e   0x00000006   Code   RO          801    i.TIM_ClearITPendingBit  stm32f10x_tim.o
+    0x08000e34   0x00000018   Code   RO          806    i.TIM_Cmd           stm32f10x_tim.o
+    0x08000e4c   0x00000006   Code   RO          825    i.TIM_GetCounter    stm32f10x_tim.o
+    0x08000e52   0x00000012   Code   RO          826    i.TIM_GetFlagStatus  stm32f10x_tim.o
+    0x08000e64   0x00000022   Code   RO          827    i.TIM_GetITStatus   stm32f10x_tim.o
+    0x08000e86   0x00000012   Code   RO          831    i.TIM_ITConfig      stm32f10x_tim.o
+    0x08000e98   0x00000004   Code   RO          865    i.TIM_SetAutoreload  stm32f10x_tim.o
+    0x08000e9c   0x00000004   Code   RO          871    i.TIM_SetCounter    stm32f10x_tim.o
+    0x08000ea0   0x000000a4   Code   RO          877    i.TIM_TimeBaseInit  stm32f10x_tim.o
+    0x08000f44   0x0000005c   Code   RO         1797    i.Timer4_Init       shell.o
+    0x08000fa0   0x00000088   Code   RO         1554    i.USART1_IRQHandler  usart1.o
+    0x08001028   0x00000018   Code   RO          614    i.USART_Cmd         stm32f10x_usart.o
+    0x08001040   0x00000054   Code   RO          618    i.USART_GetITStatus  stm32f10x_usart.o
+    0x08001094   0x0000004a   Code   RO          620    i.USART_ITConfig    stm32f10x_usart.o
+    0x080010de   0x00000002   PAD
+    0x080010e0   0x000000d8   Code   RO          621    i.USART_Init        stm32f10x_usart.o
+    0x080011b8   0x0000000a   Code   RO          628    i.USART_ReceiveData  stm32f10x_usart.o
+    0x080011c2   0x00000004   Code   RO          163    i.UsageFault_Handler  stm32f10x_it.o
+    0x080011c6   0x00000002   PAD
+    0x080011c8   0x0000004c   Code   RO         1966    i.X_Locate_Rle      step_motor.o
+    0x08001214   0x0000004c   Code   RO         1967    i.Y_Locate_Rle      step_motor.o
+    0x08001260   0x0000004c   Code   RO         1968    i.Z_Locate_Rle      step_motor.o
+    0x080012ac   0x0000000e   Code   RO         2235    i._is_digit         c_w.l(__printf_wp.o)
+    0x080012ba   0x00000006   Code   RO         1555    i._sys_exit         usart1.o
+    0x080012c0   0x00000044   Code   RO         1500    i.delay_init        delay.o
+    0x08001304   0x0000004c   Code   RO         1501    i.delay_ms          delay.o
+    0x08001350   0x0000001c   Code   RO         1556    i.fputc             usart1.o
+    0x0800136c   0x00000038   Code   RO         1596    i.led_flicker       led.o
+    0x080013a4   0x00000014   Code   RO         1597    i.led_set           led.o
+    0x080013b8   0x000000ec   Code   RO            1    i.main              main.o
+    0x080014a4   0x0000002c   Code   RO         1969    i.motor_start       step_motor.o
+    0x080014d0   0x00000006   Code   RO         1798    i.read_addr         shell.o
+    0x080014d6   0x00000002   PAD
+    0x080014d8   0x00000028   Code   RO         1970    i.step_calculate    step_motor.o
+    0x08001500   0x00000038   Code   RO         1973    i.step_frv_motor    step_motor.o
+    0x08001538   0x0000005c   Code   RO         1974    i.step_motor_STOP   step_motor.o
+    0x08001594   0x0000008c   Code   RO         1975    i.step_motor_init   step_motor.o
+    0x08001620   0x0000000c   Code   RO            2    i.test_fun          main.o
+    0x0800162c   0x0000005c   Code   RO         1664    i.time5_Init        time.o
+    0x08001688   0x0000005c   Code   RO         1665    i.time6_Init        time.o
+    0x080016e4   0x0000005c   Code   RO         1666    i.time7_Init        time.o
+    0x08001740   0x000000a0   Code   RO         1557    i.uart1_init        usart1.o
+    0x080017e0   0x000000b0   Code   RO         1799    i.usmart_cmd_rec    shell.o
+    0x08001890   0x000002d4   Code   RO         1800    i.usmart_exe        shell.o
+    0x08001b64   0x000000c8   Code   RO         1893    i.usmart_get_aparm  shell_str.o
+    0x08001c2c   0x00000036   Code   RO         1894    i.usmart_get_cmdname  shell_str.o
+    0x08001c62   0x00000002   PAD
+    0x08001c64   0x000001c0   Code   RO         1895    i.usmart_get_fname  shell_str.o
+    0x08001e24   0x0000010c   Code   RO         1896    i.usmart_get_fparam  shell_str.o
+    0x08001f30   0x00000020   Code   RO         1897    i.usmart_get_parmpos  shell_str.o
+    0x08001f50   0x00000044   Code   RO         1801    i.usmart_get_runtime  shell.o
+    0x08001f94   0x00000028   Code   RO         1802    i.usmart_init       shell.o
+    0x08001fbc   0x00000016   Code   RO         1898    i.usmart_pow        shell_str.o
+    0x08001fd2   0x00000002   PAD
+    0x08001fd4   0x00000030   Code   RO         1803    i.usmart_reset_runtime  shell.o
+    0x08002004   0x000000bc   Code   RO         1804    i.usmart_scan       shell.o
+    0x080020c0   0x00000016   Code   RO         1899    i.usmart_search_nextc  shell_str.o
+    0x080020d6   0x000000ca   Code   RO         1900    i.usmart_str2num    shell_str.o
+    0x080021a0   0x00000022   Code   RO         1901    i.usmart_strcmp     shell_str.o
+    0x080021c2   0x00000016   Code   RO         1902    i.usmart_strcopy    shell_str.o
+    0x080021d8   0x00000018   Code   RO         1903    i.usmart_strlen     shell_str.o
+    0x080021f0   0x000006a4   Code   RO         1805    i.usmart_sys_cmd_exe  shell.o
+    0x08002894   0x00000004   Code   RO         1806    i.write_addr        shell.o
+    0x08002898   0x00000024   Code   RO         1977    i.x_step_direction  step_motor.o
+    0x080028bc   0x00000034   Code   RO         1978    i.x_step_motor      step_motor.o
+    0x080028f0   0x00000014   Code   RO         1979    i.x_step_motor_start  step_motor.o
+    0x08002904   0x0000002c   Code   RO         1980    i.x_step_motor_stop  step_motor.o
+    0x08002930   0x00000024   Code   RO         1983    i.y_step_direction  step_motor.o
+    0x08002954   0x00000034   Code   RO         1984    i.y_step_motor      step_motor.o
+    0x08002988   0x00000014   Code   RO         1985    i.y_step_motor_start  step_motor.o
+    0x0800299c   0x0000002c   Code   RO         1986    i.y_step_motor_stop  step_motor.o
+    0x080029c8   0x00000024   Code   RO         1987    i.z_step_direction  step_motor.o
+    0x080029ec   0x00000034   Code   RO         1988    i.z_step_motor      step_motor.o
+    0x08002a20   0x00000014   Code   RO         1989    i.z_step_motor_start  step_motor.o
+    0x08002a34   0x0000002c   Code   RO         1990    i.z_step_motor_stop  step_motor.o
+    0x08002a60   0x000002b0   Code   RO         2256    x$fpl$ddiv          fz_ws.l(ddiv.o)
+    0x08002d10   0x0000005a   Code   RO         2259    x$fpl$dfixu         fz_ws.l(dfixu.o)
+    0x08002d6a   0x00000026   Code   RO         2263    x$fpl$dfltu         fz_ws.l(dflt_clz.o)
+    0x08002d90   0x0000009c   Code   RO         2297    x$fpl$dnaninf       fz_ws.l(dnaninf.o)
+    0x08002e2c   0x0000000c   Code   RO         2299    x$fpl$dretinf       fz_ws.l(dretinf.o)
+    0x08002e38   0x000000c4   Code   RO         2271    x$fpl$fadd          fz_ws.l(faddsub_clz.o)
+    0x08002efc   0x00000184   Code   RO         2278    x$fpl$fdiv          fz_ws.l(fdiv.o)
+    0x08003080   0x0000003e   Code   RO         2281    x$fpl$ffixu         fz_ws.l(ffixu.o)
+    0x080030be   0x00000002   PAD
+    0x080030c0   0x00000102   Code   RO         2285    x$fpl$fmul          fz_ws.l(fmul.o)
+    0x080031c2   0x0000008c   Code   RO         2301    x$fpl$fnaninf       fz_ws.l(fnaninf.o)
+    0x0800324e   0x0000000a   Code   RO         2303    x$fpl$fretinf       fz_ws.l(fretinf.o)
+    0x08003258   0x000000ea   Code   RO         2273    x$fpl$fsub          fz_ws.l(faddsub_clz.o)
+    0x08003342   0x00000000   Code   RO         2305    x$fpl$usenofp       fz_ws.l(usenofp.o)
+    0x08003342   0x00000028   Data   RO         2208    .constdata          c_w.l(_printf_hex_int.o)
+    0x0800336a   0x00000011   Data   RO         2243    .constdata          c_w.l(__printf_flags_ss_wp.o)
+    0x0800337b   0x00000001   PAD
+    0x0800337c   0x00000024   Data   RO         1807    .conststring        shell.o
+    0x080033a0   0x0000014c   Data   RO         1880    .conststring        shell_config.o
+    0x080034ec   0x00000020   Data   RO         2461    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x000008d0, Max: 0x00010000, ABSOLUTE, COMPRESSED[0x00000074])
+    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x000008d8, Max: 0x00010000, ABSOLUTE, COMPRESSED[0x00000078])
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1666,11 +1667,11 @@ Memory Map of the image
     0x20000032   0x00000002   Data   RW         1621    .data               exti.o
     0x20000034   0x0000001c   Data   RW         1808    .data               shell.o
     0x20000050   0x0000012c   Data   RW         1881    .data               shell_config.o
-    0x2000017c   0x0000002c   Data   RW         1991    .data               step_motor.o
-    0x200001a8   0x000000c8   Zero   RW         1558    .bss                usart1.o
-    0x20000270   0x00000060   Zero   RW         2340    .bss                c_w.l(libspace.o)
-    0x200002d0   0x00000200   Zero   RW          264    HEAP                startup_stm32f10x_hd.o
-    0x200004d0   0x00000400   Zero   RW          263    STACK               startup_stm32f10x_hd.o
+    0x2000017c   0x00000034   Data   RW         1991    .data               step_motor.o
+    0x200001b0   0x000000c8   Zero   RW         1558    .bss                usart1.o
+    0x20000278   0x00000060   Zero   RW         2340    .bss                c_w.l(libspace.o)
+    0x200002d8   0x00000200   Zero   RW          264    HEAP                startup_stm32f10x_hd.o
+    0x200004d8   0x00000400   Zero   RW          263    STACK               startup_stm32f10x_hd.o
 
 
 ==============================================================================
@@ -1685,13 +1686,13 @@ Image component sizes
         24          4          0          2          0        603   exti.o
        260         12          0          0          0       1078   key.o
         76         16          0          0          0        960   led.o
-       280         52          0          0          0     251942   main.o
+       248         34          0          0          0     251946   main.o
        172         22          0          0          0       1929   misc.o
       3102       1266         36         28          0       7038   shell.o
          0          0        332        300          0       1476   shell_config.o
       1328         20          0          0          0       7869   shell_str.o
         64         26        304          0       1536        764   startup_stm32f10x_hd.o
-      1118        190          0         44          0      11355   step_motor.o
+      1134        194          0         52          0      11463   step_motor.o
         12          6          0          0          0        493   stm32f10x_exti.o
        286          0          0          0          0     207608   stm32f10x_gpio.o
         26          0          0          0          0       3414   stm32f10x_it.o
@@ -1699,11 +1700,11 @@ Image component sizes
        284         42          0          0          0       5924   stm32f10x_tim.o
        408          6          0          0          0       4758   stm32f10x_usart.o
        328         28          0         20          0       1925   system_stm32f10x.o
-       540         72          0          0          0       3061   time.o
+       548         70          0          0          0       3069   time.o
        330         26          0          6        200       3845   usart1.o
 
     ----------------------------------------------------------------------
-      9078       1842        704        424       1736     521408   Object Totals
+      9070       1826        704        432       1736     521528   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         20          0          0          0          0          0   (incl. Padding)
 
@@ -1783,15 +1784,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     12826       2136        762        424       1832     517800   Grand Totals
-     12826       2136        762        116       1832     517800   ELF Image Totals (compressed)
-     12826       2136        762        116          0          0   ROM Totals
+     12818       2120        762        432       1832     517920   Grand Totals
+     12818       2120        762        120       1832     517920   ELF Image Totals (compressed)
+     12818       2120        762        120          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                13588 (  13.27kB)
-    Total RW  Size (RW Data + ZI Data)              2256 (   2.20kB)
-    Total ROM Size (Code + RO Data + RW Data)      13704 (  13.38kB)
+    Total RO  Size (Code + RO Data)                13580 (  13.26kB)
+    Total RW  Size (RW Data + ZI Data)              2264 (   2.21kB)
+    Total ROM Size (Code + RO Data + RW Data)      13700 (  13.38kB)
 
 ==============================================================================
 

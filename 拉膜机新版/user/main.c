@@ -48,7 +48,7 @@ int main()
   KEY_Init();	
 	step_motor_init();   //步进电机初始化
   uart1_init(115200);
-	usmart_dev.init(SystemCoreClock/1000000);	//初始化USMART	time4
+//	usmart_dev.init(SystemCoreClock/1000000);	//初始化USMART	time4
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4); //设置NVIC中断分组2:2位抢占优先级，2位响应优先();
 //	LED_Init();
  while(1)
@@ -67,18 +67,19 @@ int main()
 				case KEY2_PRES:	//启动	 
 					break;
 				case KEY3_PRES:	
-				Locate_Rle(20,20000,X); //相对定位函数 	20mm  20000HZd的速度  X轴
-				Locate_Rle(20,20000,Y); //相对定位函数 
-				Locate_Rle(30,30000,Z); //相对定位函数 
+				Locate_Rle(50,20000,X); //相对定位函数 	20mm  20000HZ的速度  X轴
+				Locate_Rle(50,20000,Y); //相对定位函数 
+				Locate_Rle(50,20000,Z); //相对定位函数 
 					break;
 			  case KEY4_PRES:	//测试	 
-				Locate_Rle(-20,20000,X); 
-				Locate_Rle(-20,20000,Y); 
-				Locate_Rle(-30,20000,Z); 
+				Locate_Rle(-50,20000,X); 
+				Locate_Rle(-50,20000,Y); 
+				Locate_Rle(-50,20000,Z); 
 					break;
 				case KEY5_PRES:	//自动
 					break;
 			}
 		}
+		delay_ms(50);
  }
 }

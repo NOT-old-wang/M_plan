@@ -3,7 +3,9 @@
 #include "delay.h"
 #include "exti.h"
 
-extern vu32 double_cycle;
+extern vu32 x_double_cycle;
+extern char y_double_cycle;
+extern vu32 z_double_cycle;
 extern vu32 double_pluse;
 extern vu32 x_Pluse ;
 extern vu32 y_Pluse ;
@@ -41,8 +43,8 @@ void TIM5_IRQHandler(void)   //TIM6中断
 	if (TIM_GetITStatus(TIM5, TIM_IT_Update) != RESET)  //检查TIM5更新中断发生与否
 	{
 		TIM_ClearITPendingBit(TIM5, TIM_IT_Update);  //清除TIMx更新中断标志 
-		double_cycle=double_cycle+1;
-		if( double_cycle%2 )      //i不为2的整数时 
+		z_double_cycle=z_double_cycle+1;
+		if( z_double_cycle%2 )      //i不为2的整数时 
 		 {
 			GPIO_SetBits(GPIOA,GPIO_Pin_5);
 			 z_Pluse++;
@@ -88,8 +90,8 @@ void TIM6_IRQHandler(void)   //TIM6中断
 	if (TIM_GetITStatus(TIM6, TIM_IT_Update) != RESET)  //检查TIM6更新中断发生与否
 	{
 		TIM_ClearITPendingBit(TIM6, TIM_IT_Update);  //清除TIMx更新中断标志 
-		double_cycle=double_cycle+1;
-		if( double_cycle%2 )      //i不为2的整数时 
+		x_double_cycle=x_double_cycle+1;
+		if( x_double_cycle%2 )      //i不为2的整数时 
 		 {
 			GPIO_SetBits(GPIOA,GPIO_Pin_6);
 			 x_Pluse++;
@@ -116,7 +118,7 @@ void time7_Init(u16 arr,u16 psc)
 	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;  //TIM向上计数模式
 	TIM_TimeBaseInit(TIM7, &TIM_TimeBaseStructure); //根据指定的参数初始化TIMx的时间基数单位
  
-	TIM_ITConfig(TIM7,TIM_IT_Update,ENABLE ); //使能指定的TIM6中断,允许更新中断
+	TIM_ITConfig(TIM7,TIM_IT_Update,ENABLE ); //使能指定的TIM7中断,允许更新中断
 
 	//中断优先级NVIC设置
 	NVIC_InitStructure.NVIC_IRQChannel = TIM7_IRQn;  //TIM7中断
@@ -131,16 +133,17 @@ void time7_Init(u16 arr,u16 psc)
 
 void TIM7_IRQHandler(void)   //TIM6中断
 {
-	if (TIM_GetITStatus(TIM7, TIM_IT_Update) != RESET)  //检查TIM6更新中断发生与否
+	if (TIM_GetITStatus(TIM7, TIM_IT_Update) != RESET)  //检查TIM7更新中断发生与否
 		{
 		TIM_ClearITPendingBit(TIM7, TIM_IT_Update);  //清除TIMx更新中断标志 
-		double_cycle=double_cycle+1;
-		if( double_cycle%2 )      //i不为2的整数时 
+		y_double_cycle=y_double_cycle+1;
+		if( y_double_cycle%2 )      //不为2的整数时 
 		 {
 			GPIO_SetBits(GPIOA,GPIO_Pin_7);
 			 y_Pluse++;
 	   }else 
 		 {
+			y_double_cycle=0;
 	    GPIO_ResetBits(GPIOA,GPIO_Pin_7);
 		 }
 		}
