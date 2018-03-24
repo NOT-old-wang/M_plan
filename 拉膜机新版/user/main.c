@@ -21,6 +21,7 @@ extern vu32 z_need_Pluse;
 
 
 /*使用的资源   2相，32细分，1.8度步距角      老王2018/3/1
+1圈4mm
 TIM5 TIM6 TIM7  --的两个定时器来模拟控制步进，
 可以修改step_motor.h里的宏定义
 TIM4--shell
@@ -61,25 +62,53 @@ int main()
 		{				   
 			switch(key)
 			{				 
-				case KEY1_PRES:	//急停
-				 step_motor_STOP(); 
-					break; 
-				case KEY2_PRES:	//启动	 
-					break;
-				case KEY3_PRES:	
+				case KEY1_PRES:	//启动	 
 				Locate_Rle(50,20000,X); //相对定位函数 	20mm  20000HZ的速度  X轴
 				Locate_Rle(50,20000,Y); //相对定位函数 
 				Locate_Rle(50,20000,Z); //相对定位函数 
-					break;
-			  case KEY4_PRES:	//测试	 
+					break; 
+				case KEY2_PRES:	//返回
 				Locate_Rle(-50,20000,X); 
 				Locate_Rle(-50,20000,Y); 
-				Locate_Rle(-50,20000,Z); 
+				Locate_Rle(-50,20000,Z); 	
 					break;
-				case KEY5_PRES:	//自动
+				case KEY3_PRES:	//功能1
+				Locate_Rle(10,10000,X); 
+				Locate_Rle(10,10000,Y); 
+				Locate_Rle(10,10000,Z); 
+
 					break;
+			  case KEY4_PRES:	//功能2 
+				Locate_Rle(30,30000,X); 
+				Locate_Rle(30,30000,Y); 
+				Locate_Rle(30,30000,Z); 
+					break;
+				case KEY5_PRES:	//功能3
+//				Locate_Rle(30,30000,X); 
+//				Locate_Rle(30,30000,Y); 
+//				Locate_Rle(30,30000,Z); 
+					break;
+				case KEY6_PRES:	//急停
+				step_motor_STOP();
+					break;
+//			  case KEY8_PRES:	//X轴正转
+//				x_step_motor(8,0,4500);
+//				case KEY9_PRES:	//X轴反转
+//				x_step_motor(8,1,4500);	
+//					break;
+//				case KEY10_PRES:	//Y轴正转
+//			  y_step_motor(8,0,4500);
+//					break;
+//			  case KEY11_PRES://Y轴反转	 
+//				y_step_motor(8,1,4500);
+//					break;
+//				case KEY12_PRES://Z轴正转
+//				z_step_motor(8,0,4500);
+//					break;
+//				case KEY13_PRES://Z轴正转
+//				z_step_motor(8,1,4500);
+//					break;
 			}
-		}
-		delay_ms(50);
+		}	
  }
 }
