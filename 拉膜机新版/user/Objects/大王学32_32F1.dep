@@ -1,5 +1,5 @@
 Dependencies for Project '大王学32', Target '32F1': (DO NOT MODIFY !)
-F (.\main.c)(0x5AB60F97)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\user -I..\SYSTEM -I..\STM32F10x_FWLib\inc -I..\led -I..\CORE -I..\exti -I..\key -I..\time -I..\dma -I..\OLED -I..\shell -I..\step-motor -I..\ui-I E:\拉膜机\拉膜机新版\user\RTE-I D:\ARM\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I D:\ARM\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\main.c)(0x5AB63EED)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\user -I..\SYSTEM -I..\STM32F10x_FWLib\inc -I..\led -I..\CORE -I..\exti -I..\key -I..\time -I..\dma -I..\OLED -I..\shell -I..\step-motor -I..\ui-I E:\拉膜机\拉膜机新版\user\RTE-I D:\ARM\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I D:\ARM\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
 I (D:\ARM\ARM\ARMCC\include\stdint.h)(0x5A1E51C9)
@@ -32,7 +32,7 @@ I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (..\led\led.h)(0x59218E5D)
 I (..\SYSTEM\sys.h)(0x590C5FA0)
 I (..\SYSTEM\delay.h)(0x555AC82B)
-I (..\key\key.h)(0x5AB60363)
+I (..\key\key.h)(0x5AB62701)
 I (..\exti\exti.h)(0x5965BF2C)
 I (..\time\time.h)(0x5AA779A2)
 I (..\SYSTEM\usart1.h)(0x5901969A)
@@ -41,7 +41,7 @@ I (..\shell\shell.h)(0x5965BED7)
 I (..\shell\shell_str.h)(0x5965BED7)
 I (..\OLED\oled.h)(0x59219216)
 I (D:\ARM\ARM\ARMCC\include\stdlib.h)(0x5475F300)
-I (..\step-motor\step_motor.h)(0x5AA78AE8)
+I (..\step-motor\step_motor.h)(0x5AB632D7)
 I (..\ui\display.h)(0x5AA9E522)
 F (.\stm32f10x_it.c)(0x5965BF2C)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\user -I..\SYSTEM -I..\STM32F10x_FWLib\inc -I..\led -I..\CORE -I..\exti -I..\key -I..\time -I..\dma -I..\OLED -I..\shell -I..\step-motor -I..\ui-I E:\拉膜机\拉膜机新版\user\RTE-I D:\ARM\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I D:\ARM\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\stm32f10x_it.o --omf_browse .\objects\stm32f10x_it.crf --depend .\objects\stm32f10x_it.d)
 I (stm32f10x_it.h)(0x4D99A426)
@@ -467,11 +467,11 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (..\SYSTEM\delay.h)(0x555AC82B)
 I (..\SYSTEM\sys.h)(0x590C5FA0)
-I (..\key\key.h)(0x5AB60363)
+I (..\key\key.h)(0x5AB62701)
 I (..\led\led.h)(0x59218E5D)
 I (..\time\time.h)(0x5AA779A2)
-F (..\key\key.c)(0x5AB6147B)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\user -I..\SYSTEM -I..\STM32F10x_FWLib\inc -I..\led -I..\CORE -I..\exti -I..\key -I..\time -I..\dma -I..\OLED -I..\shell -I..\step-motor -I..\ui-I E:\拉膜机\拉膜机新版\user\RTE-I D:\ARM\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I D:\ARM\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\key.o --omf_browse .\objects\key.crf --depend .\objects\key.d)
-I (..\key\key.h)(0x5AB60363)
+F (..\key\key.c)(0x5AB63DC4)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\user -I..\SYSTEM -I..\STM32F10x_FWLib\inc -I..\led -I..\CORE -I..\exti -I..\key -I..\time -I..\dma -I..\OLED -I..\shell -I..\step-motor -I..\ui-I E:\拉膜机\拉膜机新版\user\RTE-I D:\ARM\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I D:\ARM\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\key.o --omf_browse .\objects\key.crf --depend .\objects\key.d)
+I (..\key\key.h)(0x5AB62701)
 I (..\user\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
 I (D:\ARM\ARM\ARMCC\include\stdint.h)(0x5A1E51C9)
@@ -503,7 +503,9 @@ I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (..\SYSTEM\delay.h)(0x555AC82B)
 I (..\SYSTEM\sys.h)(0x590C5FA0)
 I (..\led\led.h)(0x59218E5D)
-F (..\time\time.c)(0x5AB06B07)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\user -I..\SYSTEM -I..\STM32F10x_FWLib\inc -I..\led -I..\CORE -I..\exti -I..\key -I..\time -I..\dma -I..\OLED -I..\shell -I..\step-motor -I..\ui-I E:\拉膜机\拉膜机新版\user\RTE-I D:\ARM\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I D:\ARM\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\time.o --omf_browse .\objects\time.crf --depend .\objects\time.d)
+I (..\step-motor\step_motor.h)(0x5AB632D7)
+I (..\time\time.h)(0x5AA779A2)
+F (..\time\time.c)(0x5AB72F1D)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\user -I..\SYSTEM -I..\STM32F10x_FWLib\inc -I..\led -I..\CORE -I..\exti -I..\key -I..\time -I..\dma -I..\OLED -I..\shell -I..\step-motor -I..\ui-I E:\拉膜机\拉膜机新版\user\RTE-I D:\ARM\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I D:\ARM\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\time.o --omf_browse .\objects\time.crf --depend .\objects\time.d)
 I (..\time\time.h)(0x5AA779A2)
 I (..\user\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -537,6 +539,8 @@ I (..\led\led.h)(0x59218E5D)
 I (..\SYSTEM\sys.h)(0x590C5FA0)
 I (..\SYSTEM\delay.h)(0x555AC82B)
 I (..\exti\exti.h)(0x5965BF2C)
+I (..\step-motor\step_motor.h)(0x5AB632D7)
+I (..\key\key.h)(0x5AB62701)
 F (..\OLED\oled.c)(0x591F980C)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\user -I..\SYSTEM -I..\STM32F10x_FWLib\inc -I..\led -I..\CORE -I..\exti -I..\key -I..\time -I..\dma -I..\OLED -I..\shell -I..\step-motor -I..\ui-I E:\拉膜机\拉膜机新版\user\RTE-I D:\ARM\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I D:\ARM\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\oled.o --omf_browse .\objects\oled.crf --depend .\objects\oled.d)
 I (..\OLED\oled.h)(0x59219216)
 I (..\SYSTEM\sys.h)(0x590C5FA0)
@@ -640,9 +644,9 @@ I (..\SYSTEM\sys.h)(0x590C5FA0)
 I (..\led\led.h)(0x59218E5D)
 I (..\OLED\oled.h)(0x59219216)
 I (D:\ARM\ARM\ARMCC\include\stdlib.h)(0x5475F300)
-I (..\step-motor\step_motor.h)(0x5AA78AE8)
+I (..\step-motor\step_motor.h)(0x5AB632D7)
 I (..\time\time.h)(0x5AA779A2)
-I (..\key\key.h)(0x5AB60363)
+I (..\key\key.h)(0x5AB62701)
 F (..\shell\shell_str.c)(0x5965BED7)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\user -I..\SYSTEM -I..\STM32F10x_FWLib\inc -I..\led -I..\CORE -I..\exti -I..\key -I..\time -I..\dma -I..\OLED -I..\shell -I..\step-motor -I..\ui-I E:\拉膜机\拉膜机新版\user\RTE-I D:\ARM\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I D:\ARM\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\shell_str.o --omf_browse .\objects\shell_str.crf --depend .\objects\shell_str.d)
 I (..\shell\shell_str.h)(0x5965BED7)
 I (..\user\stm32f10x.h)(0x4D783CB4)
@@ -674,8 +678,8 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x504F415E)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (..\shell\shell.h)(0x5965BED7)
-F (..\step-motor\step_motor.c)(0x5AB06A91)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\user -I..\SYSTEM -I..\STM32F10x_FWLib\inc -I..\led -I..\CORE -I..\exti -I..\key -I..\time -I..\dma -I..\OLED -I..\shell -I..\step-motor -I..\ui-I E:\拉膜机\拉膜机新版\user\RTE-I D:\ARM\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I D:\ARM\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\step_motor.o --omf_browse .\objects\step_motor.crf --depend .\objects\step_motor.d)
-I (..\step-motor\step_motor.h)(0x5AA78AE8)
+F (..\step-motor\step_motor.c)(0x5AB63267)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\user -I..\SYSTEM -I..\STM32F10x_FWLib\inc -I..\led -I..\CORE -I..\exti -I..\key -I..\time -I..\dma -I..\OLED -I..\shell -I..\step-motor -I..\ui-I E:\拉膜机\拉膜机新版\user\RTE-I D:\ARM\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I D:\ARM\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\step_motor.o --omf_browse .\objects\step_motor.crf --depend .\objects\step_motor.d)
+I (..\step-motor\step_motor.h)(0x5AB632D7)
 I (..\user\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
 I (D:\ARM\ARM\ARMCC\include\stdint.h)(0x5A1E51C9)
@@ -705,10 +709,10 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x504F415E)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (..\time\time.h)(0x5AA779A2)
-I (..\key\key.h)(0x5AB60363)
+I (..\key\key.h)(0x5AB62701)
 I (..\led\led.h)(0x59218E5D)
 I (..\SYSTEM\sys.h)(0x590C5FA0)
-F (..\ui\display.c)(0x5AAA37F5)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\user -I..\SYSTEM -I..\STM32F10x_FWLib\inc -I..\led -I..\CORE -I..\exti -I..\key -I..\time -I..\dma -I..\OLED -I..\shell -I..\step-motor -I..\ui-I E:\拉膜机\拉膜机新版\user\RTE-I D:\ARM\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I D:\ARM\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\display.o --omf_browse .\objects\display.crf --depend .\objects\display.d)
+F (..\ui\display.c)(0x5AB63268)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\user -I..\SYSTEM -I..\STM32F10x_FWLib\inc -I..\led -I..\CORE -I..\exti -I..\key -I..\time -I..\dma -I..\OLED -I..\shell -I..\step-motor -I..\ui-I E:\拉膜机\拉膜机新版\user\RTE-I D:\ARM\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I D:\ARM\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\display.o --omf_browse .\objects\display.crf --depend .\objects\display.d)
 I (..\ui\display.h)(0x5AA9E522)
 I (..\OLED\oled.h)(0x59219216)
 I (..\SYSTEM\sys.h)(0x590C5FA0)
@@ -741,8 +745,8 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x504F415E)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (D:\ARM\ARM\ARMCC\include\stdlib.h)(0x5475F300)
-I (..\key\key.h)(0x5AB60363)
+I (..\key\key.h)(0x5AB62701)
 I (..\SYSTEM\delay.h)(0x555AC82B)
-I (..\step-motor\step_motor.h)(0x5AA78AE8)
+I (..\step-motor\step_motor.h)(0x5AB632D7)
 I (..\time\time.h)(0x5AA779A2)
 I (..\led\led.h)(0x59218E5D)

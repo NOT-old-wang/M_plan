@@ -1,7 +1,7 @@
 #include "key.h"
 #include "delay.h"
 #include "led.h"
-
+#include "step_motor.h"
 
 void KEY_Init(void) //IO初始化
 { 
@@ -18,9 +18,10 @@ void KEY_Init(void) //IO初始化
 	                              |GPIO_Pin_8
 	                              |GPIO_Pin_9
 	                              |GPIO_Pin_10
-	                              |GPIO_Pin_11;//KEY
+	                              |GPIO_Pin_11
+	                              |GPIO_Pin_12;//KEY
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; //设置成上拉输入
- 	GPIO_Init(GPIOE, &GPIO_InitStructure);//初始化GPIOE0,1,2,3,4,7,8
+ 	GPIO_Init(GPIOE, &GPIO_InitStructure);//初始化GPIOE
 
 
 }
@@ -48,9 +49,8 @@ u8 KEY_Scan(u8 mode)
 		else if(KEY12==0)return KEY12_PRES;
 		else if(KEY13==0)return KEY13_PRES;
 		
-
 	}else if(KEY1==1&&KEY2==1&&KEY3==1&&KEY4==1&&KEY5==1&&KEY6==1&&KEY7==1
-					&&KEY8==1&&KEY9==1&&KEY10==1&&KEY11==1&&KEY12==1&&KEY13==1) key_up=1; 
+					 &&KEY8==1&&KEY9==1&&KEY10==1&&KEY11==1&&KEY12==1&&KEY13==1) key_up=1; 
  	return 0;// 无按键按下
 }
 

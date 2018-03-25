@@ -16,6 +16,10 @@ vs32 x_sum_Pluse = 0;
 vs32 y_sum_Pluse = 0;
 vs32 z_sum_Pluse = 0;
 
+s16 X_distance=0;
+s16 Y_distance=0;
+s16 Z_distance=0;
+
 void step_motor_init()  //电机初始化
 {
 	 
@@ -271,7 +275,8 @@ u8 z_step_motor(u16 distance,u8 dir,float frv)  //Y轴方向距离速度控制
 
 void X_Locate_Rle(s16 distance,float frv) //X相对定位函数
 {
- if(distance>=0)
+	X_distance+=distance;
+  if(distance>=0)
 	{
 		 x_step_motor(distance,0,frv);
 		 x_sum_Pluse+=x_need_Pluse;
@@ -283,7 +288,8 @@ void X_Locate_Rle(s16 distance,float frv) //X相对定位函数
 
 void Y_Locate_Rle(s16 distance,float frv) //Y相对定位函数
 {
- if(distance>=0)
+	Y_distance+=distance;
+  if(distance>=0)
 	{
 		 y_step_motor(distance,0,frv);
 		 y_sum_Pluse+=y_need_Pluse;
@@ -295,6 +301,7 @@ void Y_Locate_Rle(s16 distance,float frv) //Y相对定位函数
 
 void Z_Locate_Rle(s16 distance,float frv) //Z相对定位函数
 {
+ Z_distance+=distance;
  if(distance>=0)
 	{
 		 z_step_motor(distance,0,frv);
@@ -334,3 +341,9 @@ void motor_start(s16 X_distance,float X_frequency,
   Z_Locate_Rle(Z_distance,Z_frequency);
 }
 
+void back_zero(float frv)  //回原点
+{
+  X_Locate_Rle(-X_distance,frv);
+	Y_Locate_Rle(-Y_distance,frv);
+  Z_Locate_Rle(-Z_distance,frv);
+}

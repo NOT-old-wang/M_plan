@@ -62,20 +62,10 @@ void Locate_Rle(s16 distance,float frv,motor_Type motor_num); //相对定位函数
 void motor_start(s16 X_distance,float X_frequency,
 	               s16 Y_distance,float Y_frequency,
 								 s16 Z_distance,float Z_frequency);
+								 
+void back_zero(float frv);  //回原点
 
 /***************************/
 
-/**输入距离(带正负)，频率，哪个电机***/
-//u8 Locate_Abs(s16 distance,float frv,motor_Type motor_num);//绝对定位函数
-/******/
-
-//u8 back_zero(float frv);  //回原点
-///**输入坐标(带正负)  频率***/
-//u8 x_y_Location(s16 x_distance,s16 y_distance,float frv);//坐标定位函数 --单动
-///******/
-
-///**输入坐标(带正负)  频率***/
-//u8 XY_Location(s16 x_distance,s16 y_distance,float frv);//坐标定位函数 --双动
-///******/
 
 #endif

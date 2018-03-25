@@ -200,7 +200,6 @@ void motor_speed()
 
 void motor_speed_window()
 {
-//	u16 a=20;
 	OLED_Clear();
 	OLED_ShowString(3,5,"motor_speed",12);
 	

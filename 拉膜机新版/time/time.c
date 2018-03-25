@@ -2,13 +2,19 @@
 #include "led.h"
 #include "delay.h"
 #include "exti.h"
+#include "step_motor.h"
 
-extern vu32 x_double_cycle;
+
+extern vu32 x_need_Pluse;
+extern vu32 y_need_Pluse;
+extern vu32 z_need_Pluse;
+extern char x_double_cycle;
 extern char y_double_cycle;
-extern vu32 z_double_cycle;
+extern char z_double_cycle;
 extern vu32 double_pluse;
 extern vu32 x_Pluse ;
 extern vu32 y_Pluse ;
+
 extern vu32 z_Pluse ;
 //通用T5--电机z
 void time5_Init(u16 arr,u16 psc)
@@ -47,12 +53,13 @@ void TIM5_IRQHandler(void)   //TIM6中断
 		if( z_double_cycle%2 )      //i不为2的整数时 
 		 {
 			GPIO_SetBits(GPIOA,GPIO_Pin_5);
-			 z_Pluse++;
+			z_Pluse++;
 	   }else 
 		 {
+			z_double_cycle=0;
 	    GPIO_ResetBits(GPIOA,GPIO_Pin_5);
 		 }
-		 
+		if(z_Pluse >= z_need_Pluse)  z_step_motor_stop();	  
 	}
 }
 
@@ -94,12 +101,13 @@ void TIM6_IRQHandler(void)   //TIM6中断
 		if( x_double_cycle%2 )      //i不为2的整数时 
 		 {
 			GPIO_SetBits(GPIOA,GPIO_Pin_6);
-			 x_Pluse++;
+			x_Pluse++;
 	   }else 
 		 {
+			x_double_cycle=0;
 	    GPIO_ResetBits(GPIOA,GPIO_Pin_6);
 		 }
-		 
+	 if(x_Pluse >= x_need_Pluse)  x_step_motor_stop();	  
 	}
 }
 
@@ -146,6 +154,7 @@ void TIM7_IRQHandler(void)   //TIM6中断
 			y_double_cycle=0;
 	    GPIO_ResetBits(GPIOA,GPIO_Pin_7);
 		 }
+	 if(y_Pluse >= y_need_Pluse)  y_step_motor_stop();	 
 		}
 }
 

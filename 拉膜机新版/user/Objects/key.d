@@ -32,3 +32,5 @@
 .\objects\key.o: ..\SYSTEM\delay.h
 .\objects\key.o: ..\SYSTEM\sys.h
 .\objects\key.o: ..\led\led.h
+.\objects\key.o: ..\step-motor\step_motor.h
+.\objects\key.o: ..\time\time.h

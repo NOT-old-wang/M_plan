@@ -33,3 +33,5 @@
 .\objects\time.o: ..\SYSTEM\sys.h
 .\objects\time.o: ..\SYSTEM\delay.h
 .\objects\time.o: ..\exti\exti.h
+.\objects\time.o: ..\step-motor\step_motor.h
+.\objects\time.o: ..\key\key.h
