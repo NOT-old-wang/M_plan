@@ -41,4 +41,5 @@
 .\objects\main.o: ..\OLED\oled.h
 .\objects\main.o: D:\ARM\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\main.o: ..\step-motor\step_motor.h
+.\objects\main.o: D:\ARM\ARM\ARMCC\Bin\..\include\math.h
 .\objects\main.o: ..\ui\display.h

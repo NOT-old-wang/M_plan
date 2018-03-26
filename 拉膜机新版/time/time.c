@@ -56,10 +56,10 @@ void TIM5_IRQHandler(void)   //TIM6ÖÐ¶Ï
 			z_Pluse++;
 	   }else 
 		 {
-//			z_double_cycle=0;
+			z_double_cycle=0;
 	    GPIO_ResetBits(GPIOA,GPIO_Pin_5);
 		 }
-//		if(z_Pluse >= z_need_Pluse)  z_step_motor_stop();	  
+		if(z_Pluse >= z_need_Pluse)  z_step_motor_stop();	  
 	}
 }
 
@@ -104,10 +104,13 @@ void TIM6_IRQHandler(void)   //TIM6ÖÐ¶Ï
 			x_Pluse++;
 	   }else 
 		 {
-//			x_double_cycle=0;
+			x_double_cycle=0;
 	    GPIO_ResetBits(GPIOA,GPIO_Pin_6);
 		 }
-//	 if(x_Pluse >= x_need_Pluse)  x_step_motor_stop();	  
+	 if(x_Pluse >= x_need_Pluse)
+	 {		 
+		 x_step_motor_stop();	
+	 }		 
 	}
 }
 
@@ -151,10 +154,10 @@ void TIM7_IRQHandler(void)   //TIM6ÖÐ¶Ï
 			 y_Pluse++;
 	   }else 
 		 {
-//			y_double_cycle=0;
+			y_double_cycle=0;
 	    GPIO_ResetBits(GPIOA,GPIO_Pin_7);
 		 }
-//	 if(y_Pluse >= y_need_Pluse)  y_step_motor_stop();	 
+	 if(y_Pluse >= y_need_Pluse)  y_step_motor_stop();	 
 		}
 }
 

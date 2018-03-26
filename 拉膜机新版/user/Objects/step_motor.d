@@ -33,3 +33,4 @@
 .\objects\step_motor.o: ..\key\key.h
 .\objects\step_motor.o: ..\led\led.h
 .\objects\step_motor.o: ..\SYSTEM\sys.h
+.\objects\step_motor.o: D:\ARM\ARM\ARMCC\Bin\..\include\math.h

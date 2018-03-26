@@ -37,3 +37,4 @@
 .\objects\shell_config.o: ..\step-motor\step_motor.h
 .\objects\shell_config.o: ..\time\time.h
 .\objects\shell_config.o: ..\key\key.h
+.\objects\shell_config.o: D:\ARM\ARM\ARMCC\Bin\..\include\math.h

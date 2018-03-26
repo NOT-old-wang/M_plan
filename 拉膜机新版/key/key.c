@@ -35,6 +35,7 @@ u8 KEY_Scan(u8 mode)
 		||KEY8==0||KEY9==0||KEY10==0||KEY11==0||KEY12==0||KEY13==0))
 	{
 		delay_ms(10);//È¥¶¶¶¯ 
+		key_up=0;
 		if(KEY1==0)return KEY1_PRES;
 		else if(KEY2==0)return KEY2_PRES;
 		else if(KEY3==0)return KEY3_PRES;

@@ -10,6 +10,10 @@
 #include "step_motor.h"
 #include "display.h"
 
+#define dis_size 50
+#define speed 10000
+#define p_size  1.311
+
 
 vu32 x_Pluse = 0;
 vu32 y_Pluse = 0;
@@ -53,58 +57,66 @@ int main()
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4); //设置NVIC中断分组2:2位抢占优先级，2位响应优先();
  while(1)
  {  		
-     if(x_Pluse== x_need_Pluse)  x_step_motor_stop();	  //要一直转只需注释掉这句
-	   if(y_Pluse== y_need_Pluse)  y_step_motor_stop();	  //要一直转只需注释掉这句
-	   if(z_Pluse== z_need_Pluse)  z_step_motor_stop();	  //要一直转只需注释掉这句
+//     if(x_Pluse== x_need_Pluse)  x_step_motor_stop();	  //要一直转只需注释掉这句
+//	   if(y_Pluse== y_need_Pluse)  y_step_motor_stop();	  //要一直转只需注释掉这句
+//	   if(z_Pluse== z_need_Pluse)  z_step_motor_stop();	  //要一直转只需注释掉这句
     	key=KEY_Scan(0);	//得到键值			   
 			switch(key)
 			{				 
 				case KEY1_PRES:	//启动	 
-				Locate_Rle(20,20000,X); //相对定位函数 	50mm  20000HZ的速度  X轴
-				Locate_Rle(20,20000,Y);
-				Locate_Rle(20,20000,Z);  
+				Locate_Rle(dis_size,speed,X); 
+				Locate_Rle(dis_size,speed,Y);
+				Locate_Rle(dis_size*p_size,speed*p_size,Z); 
+        delay_ms(500);				
 					break; 
 				case KEY2_PRES:	//返回
-//				back_zero(10000);
-				Locate_Rle(-20,20000,X); 
-				Locate_Rle(-20,20000,Y); 
-				Locate_Rle(-20,20000,Z); 	
+				  back_zero(20000);
+//				Locate_Rle(-dis_size,speed,X); 
+//				Locate_Rle(-dis_size,speed,Y); 
+//				Locate_Rle(-dis_size*p_size,speed*p_size,Z); 
+        delay_ms(500);				
 					break;
 				case KEY3_PRES:	//功能1
-				Locate_Rle(10,10000,X); 
-				Locate_Rle(10,10000,Y); 
-				Locate_Rle(10,10000,Z); 
+				Locate_Rle(30,25000,X); 
+				Locate_Rle(30,25000,Y); 
+				Locate_Rle(30,25000,Z);
+				delay_ms(500);					
 					break;
 			  case KEY4_PRES:	//功能2 
-				Locate_Rle(30,30000,X); 
-				Locate_Rle(30,30000,Y); 
-				Locate_Rle(30,30000,Z); 
-					break;
+				Locate_Rle(50,25000,X); 
+				Locate_Rle(50,25000,Y); 
+				Locate_Rle(50,25000,Z); 
+        delay_ms(500);					
+				  break;
 				case KEY5_PRES:	//功能3
-//				Locate_Rle(30,30000,X); 
-//				Locate_Rle(30,30000,Y); 
-//				Locate_Rle(30,30000,Z); 
+        step_motor_STOP(); 
 					break;
 				case KEY6_PRES:	//急停
 				step_motor_STOP();
 					break;
-//			  case KEY8_PRES:	//X轴正转
-//				x_step_motor(8,0,4500);
-//				case KEY9_PRES:	//X轴反转
-//				x_step_motor(8,1,4500);	
-//					break;
-//				case KEY10_PRES:	//Y轴正转
-//			  y_step_motor(8,0,4500);
-//					break;
-//			  case KEY11_PRES://Y轴反转	 
-//				y_step_motor(8,1,4500);
-//					break;
-//				case KEY12_PRES://Z轴正转
-//				z_step_motor(8,0,4500);
-//					break;
-//				case KEY13_PRES://Z轴正转
-//				z_step_motor(8,1,4500);
-//					break;
+			  case KEY8_PRES:	//X轴正转
+				x_step_motor(8,0,10000);
+				delay_ms(500);
+				case KEY9_PRES:	//X轴反转
+				x_step_motor(8,1,10000);	
+				delay_ms(500);
+					break;
+				case KEY10_PRES:	//Y轴正转
+			  y_step_motor(8,0,10000);
+				delay_ms(500);
+					break;
+			  case KEY11_PRES://Y轴反转	 
+				y_step_motor(8,1,10000);
+				delay_ms(500);
+					break;
+				case KEY12_PRES://Z轴正转
+				z_step_motor(8,0,10000);
+				delay_ms(500);
+					break;
+				case KEY13_PRES://Z轴正转
+				z_step_motor(8,1,10000);
+				delay_ms(500);
+					break;
 			}
 		
  }

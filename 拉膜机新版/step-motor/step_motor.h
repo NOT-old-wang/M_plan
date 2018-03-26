@@ -4,6 +4,7 @@
 #include "time.h"
 #include "key.h"
 #include "led.h"
+#include "math.h"
 
 /***********old_wang 7/16***********/
 

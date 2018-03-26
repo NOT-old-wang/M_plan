@@ -35,3 +35,4 @@
 .\objects\time.o: ..\exti\exti.h
 .\objects\time.o: ..\step-motor\step_motor.h
 .\objects\time.o: ..\key\key.h
+.\objects\time.o: D:\ARM\ARM\ARMCC\Bin\..\include\math.h

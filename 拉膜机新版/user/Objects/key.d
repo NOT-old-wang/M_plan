@@ -34,3 +34,4 @@
 .\objects\key.o: ..\led\led.h
 .\objects\key.o: ..\step-motor\step_motor.h
 .\objects\key.o: ..\time\time.h
+.\objects\key.o: D:\ARM\ARM\ARMCC\Bin\..\include\math.h

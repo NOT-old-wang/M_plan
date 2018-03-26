@@ -281,10 +281,10 @@ void X_Locate_Rle(s16 distance,float frv) //X相对定位函数
   if(distance>=0)
 	{
 		 x_step_motor(distance,0,frv);
-		 x_sum_Pluse+=x_need_Pluse;
+//		 x_sum_Pluse+=x_need_Pluse;
 	}else if(distance<0){ 
 	 	 x_step_motor(-distance,1,frv);
-	   x_sum_Pluse-=x_need_Pluse;
+//	   x_sum_Pluse-=x_need_Pluse;
 	}
 }
 
@@ -294,10 +294,10 @@ void Y_Locate_Rle(s16 distance,float frv) //Y相对定位函数
   if(distance>=0)
 	{
 		 y_step_motor(distance,0,frv);
-		 y_sum_Pluse+=y_need_Pluse;
+//		 y_sum_Pluse+=y_need_Pluse;
 	}else if(distance<0){ 
 	 	y_step_motor(-distance,1,frv);
-	   y_sum_Pluse-=y_need_Pluse;
+//	   y_sum_Pluse-=y_need_Pluse;
 	}
 }
 
@@ -307,10 +307,10 @@ void Z_Locate_Rle(s16 distance,float frv) //Z相对定位函数
  if(distance>=0)
 	{
 		 z_step_motor(distance,0,frv);
-		 z_sum_Pluse+=z_need_Pluse;
+//		 z_sum_Pluse+=z_need_Pluse;
 	}else if(distance<0){ 
 	   z_step_motor(-distance,1,frv);
-	   z_sum_Pluse-=z_need_Pluse;
+//	   z_sum_Pluse-=z_need_Pluse;
 	}
 }
 
@@ -345,7 +345,8 @@ void motor_start(s16 X_distance,float X_frequency,
 
 void back_zero(float frv)  //回原点
 {
-  X_Locate_Rle(-X_distance,frv);
-	Y_Locate_Rle(-Y_distance,frv);
-  Z_Locate_Rle(-Z_distance,frv);
+	x_step_motor(abs(X_distance),1,frv);
+  y_step_motor(abs(Y_distance),1,frv);
+	z_step_motor(abs(Z_distance),1,frv);
+	X_distance=0;Y_distance=0;Z_distance=0;
 }

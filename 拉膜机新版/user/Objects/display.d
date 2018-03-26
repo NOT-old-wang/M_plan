@@ -37,3 +37,4 @@
 .\objects\display.o: ..\step-motor\step_motor.h
 .\objects\display.o: ..\time\time.h
 .\objects\display.o: ..\led\led.h
+.\objects\display.o: D:\ARM\ARM\ARMCC\Bin\..\include\math.h
