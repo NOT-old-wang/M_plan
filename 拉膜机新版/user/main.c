@@ -11,13 +11,13 @@
 #include "display.h"
 
 
-extern vu32 x_Pluse;
-extern vu32 y_Pluse;
-extern vu32 z_Pluse;
+vu32 x_Pluse = 0;
+vu32 y_Pluse = 0;
+vu32 z_Pluse = 0;
 
-extern vu32 x_need_Pluse;
-extern vu32 y_need_Pluse;
-extern vu32 z_need_Pluse;
+vu32 x_need_Pluse = 0;
+vu32 y_need_Pluse = 0;
+vu32 z_need_Pluse = 0;	
 
 
 /*使用的资源   2相，32细分，1.8度步距角      老王2018/3/1
@@ -53,30 +53,27 @@ int main()
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4); //设置NVIC中断分组2:2位抢占优先级，2位响应优先();
  while(1)
  {  		
-//     if(x_Pluse== x_need_Pluse)  x_step_motor_stop();	  //要一直转只需注释掉这句
-//	   if(y_Pluse== y_need_Pluse)  y_step_motor_stop();	  //要一直转只需注释掉这句
-//	   if(z_Pluse== z_need_Pluse)  z_step_motor_stop();	  //要一直转只需注释掉这句
-    	key=KEY_Scan(0);	//得到键值
-	   	if(key)
-		{				   
+     if(x_Pluse== x_need_Pluse)  x_step_motor_stop();	  //要一直转只需注释掉这句
+	   if(y_Pluse== y_need_Pluse)  y_step_motor_stop();	  //要一直转只需注释掉这句
+	   if(z_Pluse== z_need_Pluse)  z_step_motor_stop();	  //要一直转只需注释掉这句
+    	key=KEY_Scan(0);	//得到键值			   
 			switch(key)
 			{				 
 				case KEY1_PRES:	//启动	 
-				Locate_Rle(50,20000,X); //相对定位函数 	50mm  20000HZ的速度  X轴
-				Locate_Rle(50,20000,Y);
-				Locate_Rle(50,20000,Z);  
+				Locate_Rle(20,20000,X); //相对定位函数 	50mm  20000HZ的速度  X轴
+				Locate_Rle(20,20000,Y);
+				Locate_Rle(20,20000,Z);  
 					break; 
 				case KEY2_PRES:	//返回
-				back_zero(10000);
-//				Locate_Rle(-50,20000,X); 
-//				Locate_Rle(-50,20000,Y); 
-//				Locate_Rle(-50,20000,Z); 	
+//				back_zero(10000);
+				Locate_Rle(-20,20000,X); 
+				Locate_Rle(-20,20000,Y); 
+				Locate_Rle(-20,20000,Z); 	
 					break;
 				case KEY3_PRES:	//功能1
 				Locate_Rle(10,10000,X); 
 				Locate_Rle(10,10000,Y); 
 				Locate_Rle(10,10000,Z); 
-
 					break;
 			  case KEY4_PRES:	//功能2 
 				Locate_Rle(30,30000,X); 
@@ -109,6 +106,6 @@ int main()
 //				z_step_motor(8,1,4500);
 //					break;
 			}
-		}	
+		
  }
 }

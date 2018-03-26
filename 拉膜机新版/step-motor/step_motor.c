@@ -1,15 +1,17 @@
 #include "step_motor.h"
 
 vu32 x_double_cycle = 0;
-char y_double_cycle = 0;
+vu32 y_double_cycle = 0;
 vu32 z_double_cycle = 0;
-vu32 x_Pluse = 0;
-vu32 y_Pluse = 0;
-vu32 z_Pluse = 0;
 
-vu32 x_need_Pluse = 0;
-vu32 y_need_Pluse = 0;
-vu32 z_need_Pluse = 0;
+extern vu32 x_Pluse;
+extern vu32 y_Pluse;
+extern vu32 z_Pluse;
+
+extern vu32 x_need_Pluse;
+extern vu32 y_need_Pluse;
+extern vu32 z_need_Pluse;
+
 
 vu32 frequency = 0;
 vs32 x_sum_Pluse = 0;

@@ -8,13 +8,13 @@
 extern vu32 x_need_Pluse;
 extern vu32 y_need_Pluse;
 extern vu32 z_need_Pluse;
-extern char x_double_cycle;
-extern char y_double_cycle;
-extern char z_double_cycle;
+extern vu32 x_double_cycle;
+extern vu32 y_double_cycle;
+extern vu32 z_double_cycle;
 extern vu32 double_pluse;
+
 extern vu32 x_Pluse ;
 extern vu32 y_Pluse ;
-
 extern vu32 z_Pluse ;
 //通用T5--电机z
 void time5_Init(u16 arr,u16 psc)
@@ -56,10 +56,10 @@ void TIM5_IRQHandler(void)   //TIM6中断
 			z_Pluse++;
 	   }else 
 		 {
-			z_double_cycle=0;
+//			z_double_cycle=0;
 	    GPIO_ResetBits(GPIOA,GPIO_Pin_5);
 		 }
-		if(z_Pluse >= z_need_Pluse)  z_step_motor_stop();	  
+//		if(z_Pluse >= z_need_Pluse)  z_step_motor_stop();	  
 	}
 }
 
@@ -104,10 +104,10 @@ void TIM6_IRQHandler(void)   //TIM6中断
 			x_Pluse++;
 	   }else 
 		 {
-			x_double_cycle=0;
+//			x_double_cycle=0;
 	    GPIO_ResetBits(GPIOA,GPIO_Pin_6);
 		 }
-	 if(x_Pluse >= x_need_Pluse)  x_step_motor_stop();	  
+//	 if(x_Pluse >= x_need_Pluse)  x_step_motor_stop();	  
 	}
 }
 
@@ -151,10 +151,10 @@ void TIM7_IRQHandler(void)   //TIM6中断
 			 y_Pluse++;
 	   }else 
 		 {
-			y_double_cycle=0;
+//			y_double_cycle=0;
 	    GPIO_ResetBits(GPIOA,GPIO_Pin_7);
 		 }
-	 if(y_Pluse >= y_need_Pluse)  y_step_motor_stop();	 
+//	 if(y_Pluse >= y_need_Pluse)  y_step_motor_stop();	 
 		}
 }
 
