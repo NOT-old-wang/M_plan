@@ -347,6 +347,6 @@ void back_zero(float frv)  //ªÿ‘≠µ„
 {
 	x_step_motor(abs(X_distance),1,frv);
   y_step_motor(abs(Y_distance),1,frv);
-	z_step_motor(abs(Z_distance),1,frv);
+	z_step_motor(abs(Z_distance),1,frv*1.311);
 	X_distance=0;Y_distance=0;Z_distance=0;
 }

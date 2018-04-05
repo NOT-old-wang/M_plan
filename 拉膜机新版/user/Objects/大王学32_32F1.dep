@@ -1,5 +1,5 @@
 Dependencies for Project '大王学32', Target '32F1': (DO NOT MODIFY !)
-F (.\main.c)(0x5AB89E89)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\user -I..\SYSTEM -I..\STM32F10x_FWLib\inc -I..\led -I..\CORE -I..\exti -I..\key -I..\time -I..\dma -I..\OLED -I..\shell -I..\step-motor -I..\ui-I E:\拉膜机\拉膜机新版\user\RTE-I D:\ARM\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I D:\ARM\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\main.c)(0x5AC60477)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\user -I..\SYSTEM -I..\STM32F10x_FWLib\inc -I..\led -I..\CORE -I..\exti -I..\key -I..\time -I..\dma -I..\OLED -I..\shell -I..\step-motor -I..\ui-I E:\拉膜机\拉膜机新版\user\RTE-I D:\ARM\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I D:\ARM\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
 I (D:\ARM\ARM\ARMCC\include\stdint.h)(0x5A1E51C9)
@@ -682,7 +682,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x504F415E)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (..\shell\shell.h)(0x5965BED7)
-F (..\step-motor\step_motor.c)(0x5AB89BE7)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\user -I..\SYSTEM -I..\STM32F10x_FWLib\inc -I..\led -I..\CORE -I..\exti -I..\key -I..\time -I..\dma -I..\OLED -I..\shell -I..\step-motor -I..\ui-I E:\拉膜机\拉膜机新版\user\RTE-I D:\ARM\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I D:\ARM\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\step_motor.o --omf_browse .\objects\step_motor.crf --depend .\objects\step_motor.d)
+F (..\step-motor\step_motor.c)(0x5AC5DC81)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\user -I..\SYSTEM -I..\STM32F10x_FWLib\inc -I..\led -I..\CORE -I..\exti -I..\key -I..\time -I..\dma -I..\OLED -I..\shell -I..\step-motor -I..\ui-I E:\拉膜机\拉膜机新版\user\RTE-I D:\ARM\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I D:\ARM\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\step_motor.o --omf_browse .\objects\step_motor.crf --depend .\objects\step_motor.d)
 I (..\step-motor\step_motor.h)(0x5AB8878B)
 I (..\user\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -717,7 +717,7 @@ I (..\key\key.h)(0x5AB86E35)
 I (..\led\led.h)(0x59218E5D)
 I (..\SYSTEM\sys.h)(0x590C5FA0)
 I (D:\ARM\ARM\ARMCC\include\math.h)(0x5475F2FE)
-F (..\ui\display.c)(0x5AB86E35)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\user -I..\SYSTEM -I..\STM32F10x_FWLib\inc -I..\led -I..\CORE -I..\exti -I..\key -I..\time -I..\dma -I..\OLED -I..\shell -I..\step-motor -I..\ui-I E:\拉膜机\拉膜机新版\user\RTE-I D:\ARM\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I D:\ARM\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\display.o --omf_browse .\objects\display.crf --depend .\objects\display.d)
+F (..\ui\display.c)(0x5AC608E2)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\user -I..\SYSTEM -I..\STM32F10x_FWLib\inc -I..\led -I..\CORE -I..\exti -I..\key -I..\time -I..\dma -I..\OLED -I..\shell -I..\step-motor -I..\ui-I E:\拉膜机\拉膜机新版\user\RTE-I D:\ARM\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I D:\ARM\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\display.o --omf_browse .\objects\display.crf --depend .\objects\display.d)
 I (..\ui\display.h)(0x5AA9E522)
 I (..\OLED\oled.h)(0x59219216)
 I (..\SYSTEM\sys.h)(0x590C5FA0)
