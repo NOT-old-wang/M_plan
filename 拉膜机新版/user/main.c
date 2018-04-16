@@ -10,21 +10,39 @@
 #include "step_motor.h"
 #include "display.h"
 
-/***********参数在这里修改*************/
-#define x_y_dis_size     150      //150mm
-#define x_y_speed        20000    //20000hz
-#define p_size           1.311    //比例
-#define z_speed          p_size*x_y_speed
-#define z_dis_size       x_y_dis_size*p_size
-/**************************************/
+/***********返回参数在这里修改*************/
+#define back_speed	5000
+/*****************************************/
+
+/***********3x3参数在这里修改*************/
+#define x_y_dis_size3_3     150      //150mm
+#define x_y_speed3_3        5000    //10000hz
+#define p_size3_3           1.311    //比例
+#define z_speed3_3          p_size3_3*x_y_speed3_3
+#define z_dis_size3_3       x_y_dis_size3_3*p_size3_3
+/****************************************/
+
+/***********3x3.5参数在这里修改*************/
+#define x_dis_size3_5     150      //150mm
+#define y_dis_size3_5     185      //185mm
+#define z_dis_size3_5     197      //197mm
+#define x_speed3_5        5000     //5000hz
+#define y_speed3_5        (y_dis_size3_5/x_dis_size3_5)*x_speed3_5  
+#define z_speed3_5        (z_dis_size3_5/x_dis_size3_5)*x_speed3_5 
+/****************************************/
 
 vu32 x_Pluse = 0;
 vu32 y_Pluse = 0;
 vu32 z_Pluse = 0;
 
+
 vu32 x_need_Pluse = 0;
 vu32 y_need_Pluse = 0;
 vu32 z_need_Pluse = 0;	
+
+extern s16 X_distance;
+extern s16 Y_distance;
+extern s16 Z_distance;
 
 vu8 key=0;
 
@@ -71,33 +89,34 @@ void control()
 	switch(key)
 	{				 
 			case KEY1_PRES:	//启动	 
-		       Locate_Rle(x_y_dis_size,x_y_speed,X); 
-			     Locate_Rle(x_y_dis_size,x_y_speed,Y);
-			     Locate_Rle(z_dis_size  ,z_speed  ,Z); 
+		       Locate_Rle(5,5000,X); 
+			     Locate_Rle(5,5000,Y);
+			     Locate_Rle(5,5000,Z); 
            delay_ms(500);				
 			break; 
 			
 			case KEY2_PRES:	//返回
-				   back_zero(20000);
+	  			 
+			(back_speed); 
            delay_ms(500);				
 			break;
 			
-			case KEY3_PRES:	//功能1
-				   Locate_Rle(30,25000,X); 
-				   Locate_Rle(30,25000,Y); 
-				   Locate_Rle(30,25000,Z);
+			case KEY3_PRES:	//功能1  3x3
+		       Locate_Rle(x_y_dis_size3_3,x_y_speed3_3,X); 
+			     Locate_Rle(x_y_dis_size3_3,x_y_speed3_3,Y);
+			     Locate_Rle(z_dis_size3_3  ,z_speed3_3  ,Z); 
 				   delay_ms(500);					
 			break;
 			  
-			case KEY4_PRES:	//功能2 
-				   Locate_Rle(50,25000,X); 
-				   Locate_Rle(50,25000,Y); 
-				   Locate_Rle(50,25000,Z); 
-           delay_ms(500);					
+			case KEY4_PRES:	//功能2  3x3.5
+				   Locate_Rle(x_dis_size3_5,x_speed3_5,X); 
+				   Locate_Rle(y_dis_size3_5,y_speed3_5,Y); 
+				   Locate_Rle(z_dis_size3_5,y_speed3_5,Z); 
+           delay_ms(500);	
 			break;
 			
 			case KEY5_PRES:	//功能3
-           step_motor_STOP(); 
+           step_motor_STOP();  
 			break;
 			
 		  case KEY6_PRES:	//急停
@@ -105,30 +124,32 @@ void control()
 			break;
 			  
 			case KEY8_PRES:	//X轴正转
-			     x_step_motor(8,0,10000);
-				   delay_ms(500);
-			case KEY9_PRES:	//X轴反转
-				   x_step_motor(8,1,10000);	
+			     Locate_Rle(5,1000,X); 
 				   delay_ms(500);
 			break;
-				
+			
+			case KEY9_PRES:	//X轴反转
+				   Locate_Rle(-20,15000,X);
+				   delay_ms(500);
+			break;
+			
 			case KEY10_PRES:	//Y轴正转
-			     y_step_motor(8,0,10000);
+			     Locate_Rle(5,5000,Y); 
 				   delay_ms(500);
 			break;
 			     
 			case KEY11_PRES://Y轴反转	 
-				   y_step_motor(8,1,10000);
+				   Locate_Rle(-20,15000,Y);
 				   delay_ms(500);
 			break;
 				
 			case KEY12_PRES://Z轴正转
-				   z_step_motor(8,0,10000);
+				   Locate_Rle(5,5000,Z);
 				   delay_ms(500);
 			break;
 				
 			case KEY13_PRES://Z轴正转
-				   z_step_motor(8,1,10000);
+				   Locate_Rle(-20,15000,Z);
 				   delay_ms(500);
 			break;
 	}	

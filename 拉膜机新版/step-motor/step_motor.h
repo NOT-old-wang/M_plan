@@ -34,16 +34,16 @@ void z_step_motor_stop(void); //Z电机停止
 
 void step_motor_STOP(void); //电机急停
 
-void x_step_direction(u8 mode);  //x方向控制
-void y_step_direction(u8 mode);  //y方向控制
-void z_step_direction(u8 mode);  //Z方向控制
+void x_step_direction(u8 x_mode);  //x方向控制
+void y_step_direction(u8 y_mode);  //y方向控制
+void z_step_direction(u8 z_mode);  //Z方向控制
 
 u32 step_calculate(u16 distance); //距离转化成脉冲
 u32 step_circle_pulse(u8 circle);//圈数转化成脉冲数
 
-u8 x_step_motor(u16 distance,u8 dir,float frv);  //X轴方向距离控制.输入距离，方向，频率即可
-u8 y_step_motor(u16 distance,u8 dir,float frv);  //Y轴方向距离控制
-u8 z_step_motor(u16 distance,u8 dir,float frv);  //Z轴方向距离控制
+u8 x_step_motor(u16 distance,u8 x_dir,float frv);  //X轴方向距离控制.输入距离，方向，频率即可
+u8 y_step_motor(u16 distance,u8 y_dir,float frv);  //Y轴方向距离控制
+u8 z_step_motor(u16 distance,u8 x_dir,float frv);  //Z轴方向距离控制
 
 u32 step_frv_motor(float frv); //频率计算  输入HZ
 u16 step_angle_motor(u16 Angle);//角度计算出X轴y轴脉冲

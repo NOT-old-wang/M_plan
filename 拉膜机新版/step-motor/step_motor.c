@@ -50,18 +50,12 @@ void step_motor_init()  //电机初始化
 
 void x_step_motor_start() //X电机启动
 {
-//	frequency=step_frv_motor(25600);//测试用--1秒1圈
-//	frequency=step_frv_motor(100000);//接近最大测试用
 	time6_Init(frequency,71);
-//	while(x_need_Pluse!=x_Pluse);
 }
 
 void y_step_motor_start() //Y电机启动
 {
-//	frequency=step_frv_motor(25600);//测试用--1秒1圈
-//	frequency=step_frv_motor(100000);//接近最大测试用
 	time7_Init(frequency,71);
-//	while(y_need_Pluse!=y_Pluse);
 }
 
 void z_step_motor_start() //Z电机启动
@@ -102,38 +96,38 @@ void step_motor_STOP() //电机急停
 	
 }
 
-void x_step_direction(u8 mode)  //方向控制
+void x_step_direction(u8 x_mode)  //方向控制
 {
-  if(mode==1)
+  if(1==x_mode)
 	{
 	 GPIO_SetBits(GPIOC,GPIO_Pin_6);
 	}
-	else if(mode==0)
+	else if(0==x_mode)
 	{
 	 GPIO_ResetBits(GPIOC,GPIO_Pin_6);
 	}
 
 }
-void y_step_direction(u8 mode)  //方向控制
+void y_step_direction(u8 y_mode)  //方向控制
 {
-  if(1==mode)
+  if(1==y_mode)
 	{
 	 GPIO_SetBits(GPIOC,GPIO_Pin_7);
 	}
-	else if(0==mode)
+	else if(0==y_mode)
 	{
 	 GPIO_ResetBits(GPIOC,GPIO_Pin_7);
 	}
 
 }
 
-void z_step_direction(u8 mode)  //Z方向控制
+void z_step_direction(u8 z_mode)  //Z方向控制
 {
- if(1==mode)
+ if(1==z_mode)
 	{
 	 GPIO_SetBits(GPIOC,GPIO_Pin_8);
 	}
-	else if(0==mode)
+	else if(0==z_mode)
 	{
 	 GPIO_ResetBits(GPIOC,GPIO_Pin_8);
 	}
@@ -213,27 +207,27 @@ u8 x_y_step_angle(s16 x_angle,s16 y_angle,float frv)
 }
 
 
-u8 x_step_motor(u16 distance,u8 dir,float frv)  //X轴方向距离速度控制
+u8 x_step_motor(u16 distance,u8 x_dir,float frv)  //X轴方向距离速度控制
 {
-  x_step_direction(dir);     //赋值方向
+  x_step_direction(x_dir);     //赋值方向
   x_need_Pluse=step_calculate(distance);//算出脉冲数
 	frequency=step_frv_motor(frv);//由频率计算计数值
 	x_step_motor_start();//开始驱动电机
 	return 0;
 }
 
-u8 y_step_motor(u16 distance,u8 dir,float frv)  //Y轴方向距离速度控制
+u8 y_step_motor(u16 distance,u8 y_dir,float frv)  //Y轴方向距离速度控制
 {
-  y_step_direction(dir);     //赋值方向
+  y_step_direction(y_dir);     //赋值方向
   y_need_Pluse=step_calculate(distance);//算出脉冲数
 	frequency=step_frv_motor(frv);//由频率计算计数值
 	y_step_motor_start();//开始驱动电机
 	return 0;
 }
 
-u8 z_step_motor(u16 distance,u8 dir,float frv)  //Y轴方向距离速度控制
+u8 z_step_motor(u16 distance,u8 z_dir,float frv)  //Y轴方向距离速度控制
 {
-  z_step_direction(dir);     //赋值方向
+  z_step_direction(z_dir);     //赋值方向
   z_need_Pluse=step_calculate(distance);//算出脉冲数
 	frequency=step_frv_motor(frv);//由频率计算计数值
 	z_step_motor_start();//开始驱动电机
@@ -345,8 +339,15 @@ void motor_start(s16 X_distance,float X_frequency,
 
 void back_zero(float frv)  //回原点
 {
+//	if(0==X_distance && ) x_step_motor(10,1,frv);
+//	else if(0==Y_distance) y_step_motor(10,1,frv);
+//	else if(0==Z_distance) z_step_motor(10,1,frv);
+//	else
+	
 	x_step_motor(abs(X_distance),1,frv);
   y_step_motor(abs(Y_distance),1,frv);
-	z_step_motor(abs(Z_distance),1,frv*1.311);
+	z_step_motor(abs(Z_distance),1,frv);
 	X_distance=0;Y_distance=0;Z_distance=0;
+	
+	
 }
