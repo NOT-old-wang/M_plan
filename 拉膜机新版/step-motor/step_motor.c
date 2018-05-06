@@ -339,15 +339,14 @@ void motor_start(s16 X_distance,float X_frequency,
 
 void back_zero(float frv)  //ªÿ‘≠µ„
 {
-//	if(0==X_distance && ) x_step_motor(10,1,frv);
-//	else if(0==Y_distance) y_step_motor(10,1,frv);
-//	else if(0==Z_distance) z_step_motor(10,1,frv);
-//	else
-	
-	x_step_motor(abs(X_distance),1,frv);
-  y_step_motor(abs(Y_distance),1,frv);
-	z_step_motor(abs(Z_distance),1,frv);
+	float x_frv = frv;
+	float y_frv = ((float)Y_distance / (float)X_distance)*frv;
+	float z_frv = ((float)Z_distance / (float)X_distance)*frv;
+	x_step_motor(abs(X_distance),1,x_frv);
+  y_step_motor(abs(Y_distance),1,y_frv);
+	z_step_motor(abs(Z_distance),1,z_frv);
 	X_distance=0;Y_distance=0;Z_distance=0;
 	
 	
 }
+

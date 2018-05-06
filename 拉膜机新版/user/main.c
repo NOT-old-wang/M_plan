@@ -18,8 +18,8 @@
 #define x_y_dis_size3_3     150      //150mm
 #define x_y_speed3_3        5000    //10000hz
 #define p_size3_3           1.311    //比例
-#define z_speed3_3          p_size3_3*x_y_speed3_3
-#define z_dis_size3_3       x_y_dis_size3_3*p_size3_3
+#define z_speed3_3          p_size3_3 * x_y_speed3_3
+#define z_dis_size3_3       x_y_dis_size3_3 * p_size3_3
 /****************************************/
 
 /***********3x3.5参数在这里修改*************/
@@ -27,8 +27,8 @@
 #define y_dis_size3_5     185      //185mm
 #define z_dis_size3_5     197      //197mm
 #define x_speed3_5        5000     //5000hz
-#define y_speed3_5        (y_dis_size3_5/x_dis_size3_5)*x_speed3_5  
-#define z_speed3_5        (z_dis_size3_5/x_dis_size3_5)*x_speed3_5 
+#define y_speed3_5        ((float)y_dis_size3_5/(float)x_dis_size3_5)*x_speed3_5  
+#define z_speed3_5        ((float)z_dis_size3_5/(float)x_dis_size3_5)*x_speed3_5 
 /****************************************/
 
 vu32 x_Pluse = 0;
@@ -61,7 +61,7 @@ LED:PF6 7 8
 */
 //用串口发man或help，即可知道程序的使用
 //ls 可列出所有可控制的函数
-void control();
+void control(void);
 void test_fun(void(*ledset)(u8),u8 sta)  //shell 测试函数
 {
 	ledset(sta);
@@ -97,7 +97,7 @@ void control()
 			
 			case KEY2_PRES:	//返回
 	  			 
-			(back_speed); 
+			     back_zero(back_speed); 
            delay_ms(500);				
 			break;
 			
@@ -111,7 +111,7 @@ void control()
 			case KEY4_PRES:	//功能2  3x3.5
 				   Locate_Rle(x_dis_size3_5,x_speed3_5,X); 
 				   Locate_Rle(y_dis_size3_5,y_speed3_5,Y); 
-				   Locate_Rle(z_dis_size3_5,y_speed3_5,Z); 
+				   Locate_Rle(z_dis_size3_5,z_speed3_5,Z); 
            delay_ms(500);	
 			break;
 			
@@ -124,32 +124,32 @@ void control()
 			break;
 			  
 			case KEY8_PRES:	//X轴正转
-			     Locate_Rle(5,1000,X); 
+			     Locate_Rle(200,5000,X); 
 				   delay_ms(500);
 			break;
 			
 			case KEY9_PRES:	//X轴反转
-				   Locate_Rle(-20,15000,X);
+				   Locate_Rle(-200,5000,X);
 				   delay_ms(500);
 			break;
 			
 			case KEY10_PRES:	//Y轴正转
-			     Locate_Rle(5,5000,Y); 
+			     Locate_Rle(200,5000,Y); 
 				   delay_ms(500);
 			break;
 			     
 			case KEY11_PRES://Y轴反转	 
-				   Locate_Rle(-20,15000,Y);
+				   Locate_Rle(-200,5000,Y);
 				   delay_ms(500);
 			break;
 				
 			case KEY12_PRES://Z轴正转
-				   Locate_Rle(5,5000,Z);
+				   Locate_Rle(200,5000,Z);
 				   delay_ms(500);
 			break;
 				
 			case KEY13_PRES://Z轴正转
-				   Locate_Rle(-20,15000,Z);
+				   Locate_Rle(-200,5000,Z);
 				   delay_ms(500);
 			break;
 	}	
