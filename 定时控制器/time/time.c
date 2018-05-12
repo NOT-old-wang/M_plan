@@ -42,7 +42,7 @@ void TIM6_IRQHandler(void)   //TIM6ÖÐ¶Ï
 		time_flag++;
 		LED=!LED;
 		}
-	if(time_flag==5*time_hour)
+	if(time_flag == 5*time_hour)
 		relay = off;
 }
 
