@@ -8,30 +8,49 @@
 #define uchar unsigned char   
 
 sbit ir=P3^2;
-  
 sbit LED_GPIO=P3^4;  
 sfr P3M0 = 0xB2;
 sfr P3M1 = 0xB1;
 
+bit time_start = 0;
+uchar time_10ms_flag=0;
+uchar time_10ms=0;
+uchar time_s=0;
+uchar time_min=0;
+uchar time_hour=0; 
 
-
-//sbit dula=P2^6;
-//sbit wela=P2^7;
+#define set_time 10
 uchar irtime;
 bit irprosok,irok;
 uchar irtime;
 
-//uchar code table_du[10]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f};// 显示段码值0~9
-uchar irtime;
-bit irprosok,irok;
+
 uchar ircode[4];
 uchar irdata[33];
 uchar startflag;
 uchar  bitnum;
 
+void sys_init(void);
+void GPIO_init(void);
+void timer0init(void);
+void int0init(void);
+
+void sys_init()
+{
+   int0init(); //初始化外部中断
+   timer0init();//初始化定时器
+   GPIO_init();
+}
+
+void GPIO_init(void)
+{
+ P3M0 = 0x10;		 //P3.4强推挽输出
+ P3M1 = 0x00;		 //P3.4强推挽输出
+ LED_GPIO = 0;
+}
+
 void timer0init(void)//定时器0初始化 256*(1/12m)*12=0.256ms
 {
-
   TMOD=0x02;//定时器0工作方式2，TH0是重装值，TL0是初值
   TH0=0x00; //重载值
   TL0=0x00; //初始化值
@@ -43,6 +62,29 @@ void timer0init(void)//定时器0初始化 256*(1/12m)*12=0.256ms
 void tim0_isr (void) interrupt 1 using 1  //定时器0中断服务函数
 {
   irtime++;  //用于计数2个下降沿之间的时间
+  
+  if(time_start)
+    time_10ms_flag+=1;
+  if(time_10ms_flag == 39)
+  {
+    time_10ms_flag = 0;
+    time_10ms ++;
+  }
+  if(time_10ms == 100)
+  {
+	  time_10ms = 0;
+	  time_s++;
+  }
+   if(time_s == 60)
+  {
+	  time_s == 0;
+	  time_min ++;	
+  }
+   if(time_min == 60)
+   {
+	time_min = 0;
+	time_hour++;
+   }
 }
 
 
@@ -104,14 +146,17 @@ void ir_work(void) //红外键值处理
 {
 	switch(ircode[2])   //判断第三个数码值
 	         {
-			 case 0x0c:LED_GPIO = 1; 
-//			 P0=table_du[1];
-			 break;//1 显示相应的按键值
-			 case 0x18:LED_GPIO = 0; 
-//			 P0=table_du[2];
-			 break;//2
-//			 case 0x5e:P0=table_du[3];break;//3
-//			 case 0x08:P0=table_du[4];break;//4
+			 case 0x0c:LED_GPIO = 1;  break;
+			 case 0x18:LED_GPIO = 0;  break;//2
+			 case 0x5e:time_start = 1;break;//3
+			 case 0x08:
+			 time_start = 0;
+			 time_10ms_flag =0;
+			 time_10ms=0;
+			 time_s=0;
+			 time_min=0;
+			 time_hour=0;
+			 break;//4
 //			 case 0x1c:P0=table_du[5];break;//5
 //			 case 0x5a:P0=table_du[6];break;//6
 //			 case 0x42:P0=table_du[7];break;//7
@@ -125,15 +170,7 @@ void ir_work(void) //红外键值处理
 
 void main(void)
 {
- int0init(); //初始化外部中断
- timer0init();//初始化定时器
- P3M0 = 0x10;		 //P3.4强推挽输出
- P3M1 = 0x00;		 //P3.4强推挽输出
-  LED_GPIO = 0;
-//  P0=0x00; //数码管清屏
-//  wela=1;      //位锁存
-//  wela=0;
-
+ sys_init();//系统初始化
  while(1)//主循环
    {
     if(irok)       //如果接收好了进行红外处理
@@ -141,11 +178,11 @@ void main(void)
 	   irpros();
  	   irok=0;
 	  }
-//	LED_GPIO = 1;
     if(irprosok)  //如果处理好后进行工作处理
 	  {
 	   ir_work();
   	  }
+    if(time_s==10)	LED_GPIO=1;  
    }
 }
   
